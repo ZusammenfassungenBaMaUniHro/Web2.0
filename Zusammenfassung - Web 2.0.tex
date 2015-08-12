@@ -572,4 +572,113 @@
 	\end{itemize}
 	\subsubsection{Social Engineering}
 	Social Engineering bedeutet den Mißbrauch von Gruppen-spezifischen Verhaltensweisen um den Benutzer zu einer Handlung zu bewegen die er unter Kenntnis der damit verbundenen Folgen so nicht setzen würde
+	\subsection{Fehlen von Trusted IO}
+	\subsubsection{GUI Redressing Attacke}
+	\begin{itemize}
+		\item Attacke welche durch eine versteckte Veränderung der Oberfläche erfolgt 
+		\item Möglichkeiten: Cursordatei manipulier
+		\item Clickjacking: Stehle Mausklick des Users (Angreifer spiegelt ihm vor, dass er auf eine andere Stelle klickt)
+		\item Strokejacking: Stehle den Tastendruck des Users (Browser sieht andere Taste als jene die der User gedrückt hat)
+	\end{itemize}
+	\subsubsection{Web Spoofing Attacke}
+	\begin{itemize}
+		\item Benutzer ist auf anderem Server als er glaubt
+		\item Ziel: User vorzuschleiern auf einer anderen Seite zu sein als er eigentlich ist (User denkt er ist auf bank.de, hat aber mafia.de aufgerufen)
+	\end{itemize}
+	\subsubsection{Injection Attacken}
+	\begin{itemize}
+		\item Techniken zur Generierung dynamischer Seiten erhalten Daten vom Client
+		\item Techniken werden eingesetzt bei: SQL Queries, HTML Seiten, PHP Seiten, Javascript Programme
+		\item Beispiel: Einschleusen von HTML Code auf Webseite durch Formulardaten
+		\item Beispiel: Manipulation des SQL-Query durch Manipulation im HTTP-Request
+		\item Lösung: Validierung der Eingabe, Escapen von Quotes
+	\end{itemize}
+	\subsubsection{Covert Channel}
+	\begin{itemize}
+		\item ???
+	\end{itemize}
+	\section{Einführung in Javascript}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item Ziel: Dynamische Seiten ohne Server-Interaktion, Adaptive Webseiten mit rascher Reaktion auf Client-Interaktion, Rechenaufwand auf Client verteilen
+		\item Lösungen: Javascript, VB Script, Java Applets, Active X
+		\item Später neue Anforderungen: Zugriff auf Sensoren (GPS, Webcam, Mic), Performane Boost durch clientseitige Parallelität und stärkere Kontrolle der User (App Stores, Binary Only Module)
+		\item Javascript ist: imperativ, objekt-prientiert, funktional, scripting Sprache (nicht funktional im Sinne von Haskell und Co, nicht oo wie C++ oder Java)
+		\item Programmierer kann eigenen Programmierstiel wählen d.h. wenig Zwang der Sprache
+		\item Problem: Javascript bietet wenig Garantien (keine Typsicherheit, wenig Abgrenzung der Module, Wenig Debug-Unterstützung, Wenig Optimierung)
+		\item Lösung: Nachrüsten möglich (Typsystem: Typ-Annotation in Kommentaren dadurch besste Analyse), Optimierung(Compilation auf eine VM, Sprachoptimierung nach der Analyse (Compiler von Javascript nach Javascript), Debugging (Firebug, Browser Konsolen)))	
+		\item Javascript als:
+		\begin{itemize}
+			\item imperative Sprache: Variablen, Einfaches Typsystem, Ablaufsemantik usw... aber keine sinnvolle Abgrenzung von imperativen Sprachen möglich da Variablen sind dynamisch getypt und anfänglich nicht kompiliert
+			\item funktionale Sprache: Funktionen, Rekursion, Funktionen als first-class-objects, anonyme Funktionen aber keine Seiteneffekt-Freiheit, kein komplexes Typsystem und keine referentielle Transparenz
+			\item Objekt-orientierte Sprache: Klassen, Vererbung und Polymorphismus aber keine Namensräume, keine Zugriffsmodifikatioren, kein typ-casting und keine Templates
+		\end{itemize}
+	\end{itemize}
+	\subsection{Funktionale Aspekte}
+	\begin{itemize}
+		\item Zugriff auf Parameter über Namen oder Array-Arguments (variadische Funktionen)
+		\item variadische Funktionen: Funktionen mit unbestimmter Arität (Zugriff oder Arraystruktur)
+		\item Funktionsdeklaration und Rekursion wie üblich möglich
+		\item Funktionen sind Werte (first-class-objects) d.h. können als Variablen gespeichert bzw. als Paramter übergeben werden
+		\item Anonyme Funktionen Bsp: var quad = function (x) \{return x*x;\} (Funktion ist in quad-Variable gespeichert aber hat keinen Funktionsnamen)
+		\item Closures: Anonyme Lambda-Definition mit freien Variablen (d.h. in der Funktion können Variablen genutzt werden welche im inneren Kontext nicht bekannt sind)
+		\item Eingebauter Compiler: Funktions-Körper oder bel. Evaluation durch eval-Funktion
+		\item Problem des Compilers: Langsam (da dynamisch) und Gefährlich (geringe Kontrolle über Seiten-Veränderung)
+	\end{itemize}
+	\subsection{Objekt-orientierte Aspekte}
+	\begin{itemize}
+		\item klassisch: Klassen-basierte Vererbung (Java,C++)
+		\item in JS: Prototypen-basierte Vererbung
+		\begin{itemize}
+			\item Objekt besitzt Methode selber oder delegiert Suche an Prototyp
+			\item Prototyp ist Eigenschaft der Klasse
+			\item Methoden-Suche ist dynamisch und passiert zur Laufzeit
+			\item Methoden können zur Laufzeit hinzugefügt werden
+			\item Vererbungs-Hierarchie ensteht zur Laufzeit
+			\item Vererbungs-Hierarchie kann zur Laufzeit dynamisch & mehrfach verändert werden
+		\end{itemize}
+		\item jede Funktionsauswertung läuft in einem Kontext (this)
+		\item Globales Objekt = Window 
+		\item Erzeugtes Objekt = Konstruktor
+		\item Gebundenes Objekt mit call und apply
+	\end{itemize}
+	\subsection{Scripting-Aspekte}
+	\begin{itemize}
+		\item Dynamische Erweiterung: Attribute werden dynamisch generiert
+		\item Bietet Möglichkeit, alle Instanzvariablen zu iterieren (for (fieldnName in object) \dots)
+	\end{itemize}
+	\subsection{Weitere Aspekte}
+	\begin{itemize}
+		\item Javascript Typen: schwach getypte Sprache (typeof prüft grundlegende Typen (primitiv oder Objekt), instanceof prüft auf Klasse eines Objetes) d.h. Variablen nicht getypt
+		\item 3 Bestandteile von Javascript
+		\begin{enumerate}
+			\item ECMAScript = standarditisierte Sprachkern von Javascript (wesentliche Eigenschaften werden dort implemenziert)
+			\item Document Object Model = Sprachunabhängige API für HTML (\& XML, CSS) Dokumente und Baumstrukturen, kompletter Zugriff auf alle HTML Tags (innerHTML), den Stiel (style und classname), Events via Event-Handler
+			\item Browser Object Model = Stark Plattform-spezifische API für den Browser (window, document)
+		\end{enumerate}
+		\item Server-Side Javascript: Interpretation und Verarbeitung von Javascript auf Seiten am Server
+		\item Weiter Entwicklungen:
+		\begin{itemize}
+			\item CoffeeScript = knappes Javascript, Postfix if Notation, Einrückungen (Python), Pattern Matching (Hasekll) $\rightarrow$ Compilation nach Javascript(Problem: erzeugter JS Code schwer lesbar und debugging aufwendig)
+			\item TypeScript = Javascript für die große Systementwicklung, statisch getypte Variablen, Typ-Prüfung zur Compilezeit, echte Klassen usw
+			\item Dart = Javascript in C und Java erweitert (bisschen wie TypeScript)ś
+		\end{itemize}
+	\end{itemize}
+	\section{JSON}
+	\begin{itemize}
+		\item JSON = Javascript Object Notation
+		\item Format für die Serialisierung von Objekten
+		\item Unterstütze Datenstrukturen: Objekte, Arrays, Strings, Boolean, Integer, null
+		\item Bewertung: kompakter als XML (weniger Overhead als XML, weniger aufwendiges Parsen), keine Attribute, keine DTD
+		\item Einsatzbereiche: Server generiert JSON und Client generiert in JS aus JSON ein Objekt
+		\item Risiko: Server sendet mehr als JSON Subset
+		\item Erweiterung: JSONP (JSON + Padding)
+		\item Idee: 
+		\begin{itemize}
+			\item Client fordert ein bestimmtes Padding vom Server an
+			\item Server führt Padding durch und liefert JSON + Padding aus
+			\item Ergebnis wird als dynamisches Script Tag dem Dokument hinzugefügt
+		\end{itemize}
+		\item Ergebnis: Keine Restriktion hinsichtlich XHR same-origin, da Script Tag; JSON wird an richtiger Stelle in Javascript eingebaut
+	\end{itemize}
 \end{document}
