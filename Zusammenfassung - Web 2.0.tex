@@ -125,6 +125,9 @@
 				\item Prosumers: Nutzer in der Doppelrolle \glqq Inhalt von allen für alle\grqq
 				\item Die Daten-Sammel-Phase ist zuende $\rightarrow$ wie sollen sie verarbeitet werden? $\rightarrow$ Google weiß bspw. schon vorher ob eine Grippewelle eintritt
 		\end{itemize}
+		
+		
+		
 	\section{AJAX und Web 2.0}
 	\subsection{Allgemein}
 	\begin{itemize}
@@ -143,9 +146,10 @@
 	\end{center}
 	\subsection{AjaX}
 	\begin{itemize}
-		\item AjaX = Asynchronous Javascript XMLHTTPRequest
+		\item AjaX = Asynchronous Javascript XMLHTTPRequest (XHR)
 		\item Asynchron = GUI nicht blockiert während Übertragung
 		\item kein neuer Seitenaufbau sondern dynamische Erweiterung mittels Javascript
+		\item Arbeitet als Single-Thread, was kritische Probleme löst (Es muss nicht auf parallele Entwicklung geachtet werden)
 	\end{itemize}
 	\subsection{Konzepte und Technologien}
 	\begin{itemize}
@@ -166,8 +170,68 @@
 			\item DOM – Manipulation: innerHTML, JS DOM
 		\end{itemize}
 	\end{itemize}
-	\section{Wirtschaftliche Aspekte}
+	\subsection{First Player und Impulse}
+	\begin{itemize}
+		\item Google Suggest: Interactive GUI
+		\item Writely $\rightarrow$ Google Docs
+		\item Google Maps und Gmail
+		\item Technorati (Realtime Trend Analyse mit humane Klassifikation)
+		\item Flickr und Youtube (Prosument)
+		\item The Broth (Multiuser Game (Mosaik),JS basiertes Drag-and-Drop)  
+		\item LinkedIn
+	\end{itemize}
+	\subsection{Wirtschaftliche Aspekte}
 	Einfach mal in den Folien lesen \glqq02-netzwerk-effekte-2015-bw.pdf\grqq
+		\begin{itemize}
+			\item Lizensierung
+			\item Lock up in the Cloud
+			\item Lock up in the App
+			\item Lock up in the App Store
+			\item Half-Open Source
+			\item Affero Lizenz
+			\item Mandatory Binary Signing
+		\end{itemize}
+		\subsection{Geschäftsprobleme im Internet}
+			Das Problem:
+			\begin{itemize}
+				\item Viele (gute) Lösungen sind kostenfrei\\
+				(warum was zahlen?)
+				\item Metering ist schwierig\\
+				(Wie messe/berechne ich Nutzung?)
+				\item Brand Building ist extrem teuer (bspw. Apple/Google)
+				\item Advertising ist ausgelutscht				
+			\end{itemize}
+			Die Kernfragen:
+			\begin{itemize}
+				\item Wer zahlt an wen?
+					\begin{itemize}
+						\item Oft nicht der unmittelbare Nutznießer der Dienstleistung
+						\item Bsp: Google: Es zahlt nicht der Such-Kunde (Finanziert sich durch Aufmerksamkeits-Lenkung)
+						\item Bsp: Firefox: Es zahlt nicht der Browser-Kunde (Finanziert sich durch Default Homepage / Search Engine Google)
+					\end{itemize}
+				\item Warum wird gezahlt? 
+					\begin{itemize}
+						\item Geleisteter Dienst, aber auch ausgenutzte Bindungen
+						\item Bsp: Facebook: Kenntnis der Daten des Endanwenders
+						\item Bsp: AppStore: Zwangsbündelung über Installation
+					\end{itemize}
+				\item Wofür wird gezahlt?
+					\begin{itemize}
+						\item Für Daten oder Dienste
+						\item Für ein Enabling (Zugang, Default-Einstellung, Top Platzierung)
+					\end{itemize}
+				\item Wie schützt sich das Modell vor Nachahmung?
+			\end{itemize}
+		Mögliche Lösungen
+			\begin{itemize}
+				\item Premium Services sind kostenpflichtige high-end Versionen einer Dienstleistung
+				\item Commercial Services sind Versionen einer Dienstleistung für den comm./prof. User\\
+				(Zuverlässigkeit, Features, Rechtsgarantien)
+				\item Technologie-Kompetenz als Outsourcing einer high-end IT Abteilung
+				\item Solution Hosting betreibt eine komplexe Technologie Server-seitig
+				\item Infomediary betreibt einen Handelsplatz zwischen Bedürfnissen
+				\item Verbund-Angebote / Lock-In Angebote
+			\end{itemize}
 	\section{XMLHttpRequest}
 	\subsection{Allgemein}
 	\begin{itemize}
