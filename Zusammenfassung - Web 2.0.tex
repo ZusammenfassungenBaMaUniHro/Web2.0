@@ -431,6 +431,67 @@
 		\item WICHTIG: Cross Domain XHR verhindert durch Sandbox, Cross Domain Scripting wird nicht verhindert durch Sandbox
 		\item Warum? Eigentlich wenig Sinn ausser bei Zugriff auf Mashup (Google Maps, Flickr Gallerie)
 		\item Probleme: Fremdes Script zerstört Aussehen meiner Web Site völlig, Fremdes Script liest Werte aus Formularen aus
-		\item ???Bookmarklet Requests,Cross Site Request Forgery????
+
+		\item Bookmarklet = ist ein kleines in JavaScript geschriebenes Makro, das als Bookmark abgespeichert wird und dadurch die Funktionen eines Webbrowsers erweitert; Problem: laufen mit den Rechten der aktuell angezeigten Seite und können so Cookies-Stehlen und remote-Code hinzufügen
 	\end{itemize}
+	\subsubsection{Cross Site Request Forgery}
+	\begin{itemize}
+		\item Angreifer plaziert IMG-Link auf einer Seite mit Link welcher aufgerufen wird wenn Seite geladen wird
+		\item Bsp: $\le$img src=\glqq http://bank.example/withdraw?account=bob\&amount=1000000\&for=mallory\grqq$\ge$
+		\item Verteidigung: 
+		\begin{itemize}
+			\item nutzen von Logoff (Anfragen werden verworfen da Benutzer nicht angemeldet)
+			\item Service nur als POST anbieten
+			\item Zur Autorisierung auch ein Hidden Field nutzen
+			\item Cookie double submission: Cookie und dazupassenden Teil in einem hidden field erwarten
+		\end{itemize}
+		\item Probleme:
+		\begin{itemize}
+			\item Cookies zur Vermittelung von Rechten (bei Aufruf wird Cookie verstandt); Erwünscht: Cross Domain User Tracking (Marketing), Unerwünscht: weil Cookies auch zum Speichern von User Credentials benutzt werden
+			\item 2 implizite Annahmen im Link-Konzept: User sieht den Link, auf den er klickt aber er sieht nur Inhalt des Link-Tags nicht die URL $\rightarrow$ Betrug durch falsche GUI Konstruktion; User kennt den Effekt des Links, auf den er klickt aber URL namens abbuchen.php muss nicht abbuchen $\rightarrow$ Betrug durch vorgespiegelte URL Semantik
+		\end{itemize}
+	\end{itemize}
+	\subsection{Konzeptuelle Probleme bei Berechtigungen}
+	\subsubsection{Confused Deputy - Problem}
+	\begin{itemize}
+		\item Eine Komponente hat ein Recht aber das Recht wird genutzt, aber ausserhalb der erwarteten Verarbeitungssequenz oder ausserhalb des erwarteten Verarbeitungskontexts
+		\item Eine Komponente referenziert eine andere Komponentee welche genutzt wird aber anders als mit der intendierten Semantik der Komponente
+	\end{itemize}
+	\subsubsection{Wie funktionieren Berechtigungen?}
+	\begin{itemize}
+		\item Owner Based Rights
+		\begin{itemize}
+			\item Objekte gehören einem User
+			\item UserId hat bestimmte Rechte auf dem Objekt
+			\item Programm unter einen UserId hat bestimmte Zugriffsrechte
+			\item Problem: Kann Zugriffsrechte nicht mit anderen User teilen
+			\item Lösung: Gruppenkonzept
+		\end{itemize}
+		\item Group Based Rights
+		\begin{itemize}
+			\item Objekte haben auch eine Gruppe
+			\item User gehören in eine Gruppe
+			\item User in einer Gruppe haben bestimmte Rechte
+			\item Problem: Gruppenstruktur kann sehr komplex werden
+			\item Lösung: Access Control Lists
+		\end{itemize}
+		\item Access Control Lists (ACL)
+		\begin{itemize}
+			\item Objekte haben eine ACL
+			\item ACL weiss was welcher User darf
+			\item Problem: Recht hängt nur vom User ab, nicht vom Programm oder Kontext des Programmes	
+		\end{itemize}
+		\item Capabilities
+		\begin{itemize}
+			\item Zugreifende Entitäten haben spezifische Fähigkeiten, auf Objekte zuzugreifen
+			\item ???
+		\end{itemize}
+		\item Kontextuelle Restriktionen
+		\begin{itemize}
+			\item Bindung an den Kontext / die Seite / den Referer
+			\item ???
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{Social Engineering}
+	Social Engineering bedeutet den Mißbrauch von Gruppen-spezifischen Verhaltensweisen um den Benutzer zu einer Handlung zu bewegen die er unter Kenntnis der damit verbundenen Folgen so nicht setzen würde
 \end{document}
