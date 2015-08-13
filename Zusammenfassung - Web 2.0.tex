@@ -256,11 +256,19 @@
 		\item POSTS werden nicht gecached und nervige Browsermeldung(nicht bei XHR) (Empfohlen bei vielen Daten im Query)
 		\item Synchron (nicht Ajax): sinnvoll wenn die Interaktion des Users zu verhinden (Bsp.: online Banking)
 		\item Asynchron: Programieraufwand (Timeout, Fehlerfall, Mehrfach-Requests, Anzeige an die User über laufenden Ladevorgang)
+		\item Umgang mit Fehlerfällen: Defensiv Programmieren: überall entsprechende Exception Handler vorsehen, Viel Logging, Davon ausgehen,d ass alles irgendwann mal irgendwie schief läuft
 	\end{itemize}
+			
+	
+	\section{Fehlendes Kapitel}	
+	
+		
 	\section{Bitcoin}
 	\subsection{Allgemein}
 	\begin{itemize}
 		\item \glqq Geld ist ein \textbf{Recht} zur Ausführung einer bestimmten Transaktion das von seinem \textbf{Träger} \textbf{genau einmal ausgeübt} werden kann und \textbf{nur durch} die Ausübung auf \textbf{andere übergeht}.\grqq
+		\item Geld als Wertmaßstab, Tauschmittel und Wertaufbewahrung
+		\item Bedrohungen: Wert-Verlust, Inflation, System-Crash,...
 		\item \glqq Träger:\grqq
 		\begin{itemize}
 			\item an Name gebunden
@@ -286,6 +294,11 @@
 		\begin{itemize}
 			\item einer verliert,einer bekommt das recht
 		\end{itemize}
+		\item Wie entsteht der \glqq Wert\grqq des Geldes
+		\begin{itemize}
+			\item Geld lässt sich \textbf{unmittelbar konvertieren} in Nahrungsmittel, etc.
+			\item Es wird akzeptiert und ist vom Gesetzt als Zahlungsmittel vorgeschrieben 
+		\end{itemize}
 	\end{itemize}
 	\subsection{Was ist Bitcoin?}
 	\begin{itemize}
@@ -295,6 +308,7 @@
 			\item Nachweis der Befugnis durch Key Paar
 			\item Bitcoin Adresse ist hash des public key
 			\item Private Key verlieren ist Geld verlieren
+			\item Identität durch Key Paar Generierung (256 Bit)
 		\end{itemize}
 		\item Übertragung
 		\begin{itemize}
@@ -304,10 +318,63 @@
 			\item Transaktion an alle Knoten gesandt
 			\item Berechtigugn wird durch Signatur überprüft
 			\item neue Konto-Stände werden an alle Knoten gesandt
-			\item Problem: Inkonsistente Konto-Stände (einige Knoten sind noch nicht über neue Kontostände informiert)
-			\item Lösung: Bitcoin Blockketten-Algorithmus
 		\end{itemize}
+		\item Problem: Inkonsistente Konto-Stände (einige Knoten sind noch nicht über neue Kontostände informiert)
+		\item Lösung: Bitcoin Blockketten-Algorithmus
+		\item Wichtigste Aspekte von Bitcoin (hypeunabhänig)
+			\begin{itemize}
+				\item Hochreplizierte Datenbank
+				\item Wird nach gewisser Zeit global konsistent
+				\item probabilistischer Konsistenz-Begriff
+			\end{itemize}
 	\end{itemize}
+	\subsection{Blockketten-Algorithmus}
+	\subsection{Diskussion}
+		\begin{itemize}
+			\item Warum sollten Leute Blöcke versiegeln wollen?
+			\begin{itemize}
+				\item Wer einen Block versiegelt, erhält 50 BTC
+				\item Alle 4 Jahre wird der Wert halbiert $\rightarrow$ Asymptotisch: Maximal 21 Millionen BTC hergestellt\\				
+				$\rightarrow$ Eingebauter Inflations-Schutz
+				\item Algorithmus sieht vor: Überweisung wird nur durchgeführt, wenn eine kleine Fee gezahlt wird
+			\end{itemize}
+			\item Konsequenzen
+			\begin{itemize}
+				\item Wird das Versiegeln ökonomisch unattraktiv
+				\item[$\rightarrow$] dann versiegeln weniger Leute
+				\item[$\rightarrow$] dann sinkt die Difficulty
+				\item[$\rightarrow$] das Versiegeln kostet weniger CPU
+				\item[$\rightarrow$] und wird dadurch wieder billiger
+				\item[$\rightarrow$]\textbf{Stabiles, sich selbst regelndes System}
+			\end{itemize}
+			\item Ist Bitcoin anonym?
+			\begin{itemize}
+				\item ???
+			\end{itemize}
+			\item Problem: CAP-Theorem
+			\begin{enumerate}
+				\item \textbf{C}onsistency: Alle Knoten sehen selbe Daten
+				\item \textbf{A}vailability: System bleibt verfügbar bei einzelnen Knoten-Ausfällen
+				\item \textbf{P}artition Tolerance: Netz-Partition macht kein Anhalten des Algorithmus erforderlich				
+			\end{enumerate}
+			\begin{itemize}
+				\item In einem verteilten System bekommt man von CAP maximal 2 Eigenschaften hin $\rightarrow$ Bewiesen 2002
+				\item Bitcoin garantiert alle 3 \\
+				(C aber nur im probabilistischen Sinne)
+				\item[$\rightarrow$] Ein inkonsistentes System mit elektronischem Geld
+			\end{itemize}
+			\item Lösung
+			\begin{itemize}
+				\item Gewisse Fehlerwahrscheinlichkeit akzeptieren, die im Zeitverlauf exponentiell sinkt
+				\item Schadenserwartungswert sinkt, je länger man wartet
+				\item[$\rightarrow$] nur praktische Erfüllung von C
+			\end{itemize}
+			\item Ist Bitcoin sicher? Ja wenn:
+			\begin{itemize}
+				\item ECC, SHA-256 und RIPEMD sicher ist
+				\item Der private Key sicher gespeichert wird
+			\end{itemize}
+		\end{itemize}
 	\subsection{Zusammenfassung nach Khan Academy}
 	Dieser Abschnitt stammt von Marc.
 	Die Infos wurden den Lehrvideos der Kahn Academy \url{https://www.khanacademy.org/economics-finance-domain/core-finance/money-and-banking/bitcoin} entnommen.
