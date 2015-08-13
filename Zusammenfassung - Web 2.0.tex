@@ -11,7 +11,7 @@
 \title{Zusammenfassung - Web 2.0}
 \author{
 	Andreas Ruscheinski,
-	Marc Meier,
+	Marc  Meier,
 	Christian D.
 }
 
@@ -526,7 +526,7 @@ auf mehreren Plattformen
 			\end{itemize}
 	\end{itemize}
 	\subsection{Blockketten-Algorithmus}
-	\subsection{Diskussion}
+	\subsection{Der ökonomische Ansporn}
 		\begin{itemize}
 			\item Warum sollten Leute Blöcke versiegeln wollen?
 			\begin{itemize}
@@ -544,11 +544,11 @@ auf mehreren Plattformen
 				\item[$\rightarrow$] und wird dadurch wieder billiger
 				\item[$\rightarrow$]\textbf{Stabiles, sich selbst regelndes System}
 			\end{itemize}
-			\item Ist Bitcoin anonym?
-			\begin{itemize}
-				\item ???
 			\end{itemize}
-			\item Problem: CAP-Theorem
+			
+	\subsection{Problem: CAP-Theorem}
+			\begin{itemize}
+			\item Das Theorem
 			\begin{enumerate}
 				\item \textbf{C}onsistency: Alle Knoten sehen selbe Daten
 				\item \textbf{A}vailability: System bleibt verfügbar bei einzelnen Knoten-Ausfällen
@@ -565,11 +565,53 @@ auf mehreren Plattformen
 				\item Gewisse Fehlerwahrscheinlichkeit akzeptieren, die im Zeitverlauf exponentiell sinkt
 				\item Schadenserwartungswert sinkt, je länger man wartet
 				\item[$\rightarrow$] nur praktische Erfüllung von C
+				\item Frage: Wie groß ist die Wahrscheinlichkeit, dass es stimmt? (dezentralen Datenspeicherung)
+			\end{itemize}
+			\end{itemize}
+			
+	\subsection{Diskussion}
+			\begin{itemize}
+			\item Ist Bitcoin anonym?
+			\begin{itemize}
+				\item ???
 			\end{itemize}
 			\item Ist Bitcoin sicher? Ja wenn:
 			\begin{itemize}
 				\item ECC, SHA-256 und RIPEMD sicher ist
 				\item Der private Key sicher gespeichert wird
+			\end{itemize}
+			\item Contra
+				\begin{itemize}
+				 \item Bezahlung illegaler Transaktionen (Silk Road)
+				 \item Erpressung (Steuererklärung von Mitt Romney)
+				\end{itemize}
+			\item Pro
+				\begin{itemize}
+				 \item Weltweite Überweisung innerhalb von Sekunden
+				 \item Nach 1 Stunde relativ sicherer Status
+				 \item Frei von zentralen Instanzen
+				 \item Kann nicht gesperrt werden
+				 \item Absolutes "Bank"geheimnis möglich, da keine Bank
+				 \item Geld im Backup halten
+				 \item Jeder kann Teil der Infrastruktur sein
+				 \item Radikale Konkurrenz bei den Transaktionsgebühren
+				 \item Immun gegen politische Versuche, Geld zu drucken
+				 \item Völlig unter der Kontrolle der Mehrheit
+				\end{itemize}
+		\end{itemize}
+	\subsection{Wichtige Angriffsideen}
+		\begin{itemize}
+			\item 4 Generäle vor Byzanz mit 1 Verräter
+			\begin{itemize}
+				\item Wechselseitiger Austausch des Wissens über sich selbst und über alle in einer Tabelle
+				\item Detektieren wer gelogen hat, da zwei übereinstimmen $\rightarrow$ $O(n^2)$
+				\item Bezug zu Bitcoin: Die Mehrheit hält sich an die Regeln
+			\end{itemize}
+			\item Mehrheit der Bitcoin-Knoten unter der Kontrolle haben
+			\begin{itemize}
+				\item Es geht auch mit weniger Knoten, dann aber komplizierter
+				\item neuen Pfad generieren und auf diesen konzentrieren
+				\item Grundannahme: 40\% der Knoten müssen unter hohem Risiko an einem Pfad arbeiten
 			\end{itemize}
 		\end{itemize}
 	\subsection{Zusammenfassung nach Khan Academy}
