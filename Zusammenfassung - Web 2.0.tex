@@ -47,7 +47,7 @@
 		\item[SEARCH] Unterstütze die unternehmensweite Suche nach Inhalten;
 		Finden, was das Unternehmen weiß und in welchen Köpfen
 		\item[LINKS] Ähnliches verbinden nach Assoziationen und Gemeinsamkeiten;
-		Abkehr vom  "Teile und herrsche"
+		Abkehr vom  \glqq Teile und herrsche\glqq 
 		\item[AUTHORSHIP] Niedere Barrieren für Authorship;
 		Jeder kann und soll sich als Autor kreativ einbringen
 		\item[TAGS] Jeder kann dem Wissen seine Strukturen überstülpen;
@@ -1119,6 +1119,195 @@ auf mehreren Plattformen
 	\begin{itemize}
 		\item Netzwerke mit Power Law Verhalten werden von 2 – 3 Big Players monopolisiert
 		\item Folge: die Masse wird nicht gesehen und geht in der Bedeutungslosigkeit unter (Beispiel: Youtube)
-
+		\item ????
+	\end{itemize}
+	\section{DOM und DOM-API}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item Ziel: Veränderung des Dokumentes (Manipulation des Inhaltes oder Darstellung)
+		\item Möglichkeiten:
+		\begin{itemize}
+			\item innerHTML-Eigenschaft: Inhalt eins Tags überschreiben
+			\item Class und Style Modifikation: Attribute verändern wodurch Aussehen verändert wird oder neue Inhalte sichtbar
+			\item Javascript Dokumenten-Schnittstelle: document-Objekt in Javascript ändern
+			\item Multipart Mime Type: Mehrteilige Dokumente versenden und damit Inhalte updaten
+			\item DOM-API: Direkte Manipulation der (semi)standardisierten OO-Darstellung des Dokuments
+		\end{itemize}
+		\item Initiatoren:
+		\begin{itemize}
+			\item Server Side: Server will das sich der Inhalt ändert (Multipart Mime Type, Slow Load, Polling)
+			\item Client Side: Durch Interaktion mit der Oberfläche wird Inhalt geändert (Meta Tag Refresh, XHR Request, Javascript URL Wechsel (onload Handler))
+		\end{itemize}
+	\end{itemize}
+	\subsection{innerHTML}
+	\begin{itemize}
+		\item HTMLElemente besitzen das Attribut innerHTML
+		\item Lesen: Zeigt im Attribut enthaltenen HTML Text an
+		\item Schreiben: Ins Attribut geschriebener Text wird als HTML geparst
+		\item Beispiel: $<$div id=\grqq bsp\grqq$>$Etwas Text$<$/div$>$ (lesen)$\rightarrow$document.getElementById(\glqq bsp\glqq ).innerHTML = \glqq Nun $<$b$>$fetter$<$/b$>$
+		Text\glqq 
+		\item outerHTML: Enthält noch den Text des umschließenden Tags
+		\item innerText: Text ohne Tags
+		\item outerTags: wie innerTags aber ersetzt das komplette Element beim Überschreiben
+	\end{itemize}
+	\subsection{Class und Style Modifikationen}
+	\begin{itemize}
+		\item Class Modifikation:
+		\begin{itemize}
+			\item erlaubt Definition von Skins
+			\item Dokument nutzt vordefinierte Class-Namen
+		\end{itemize}
+		\item Style Modifikation:
+		\begin{itemize}
+			\item erlaubt berechneten Style
+			\item so Abhängigkeit von client-side Kontext möglich (Resize, Fenstergröße)
+		\end{itemize}
+		\item visibility und display Attribute:
+		\begin{itemize}
+			\item visibility: Element unsichtbar machen ABER Element bleibt an seinem Platz im Layout
+			\item display: Element unsichtbar machen ABER Element wird aus dem Platz im Layout entfernt
+			\item position: Absolute Positionierung oder relative Positionierung (bezgl. vorangehendem Element)
+		\end{itemize}
+		\item Problem: AJAX GUI ist oft dynamisch (Problem: Latenzzeit) $\rightarrow$ Lösung: Schaltbare GUI
+		\item Schaltbare GUI: Alle Elemente einer GUI mit der HTML-Seite übertragen und bei User-Interaktion einfach zwischen den einzelnen Sichten umschalten $\rightarrow$ Realisierung durch visibility/display Attribute, z-Order Techniken oder Frame-Techniken
+		\item n-stabiles Widget: hat n-stabile Zustände (Schalter mit 2 Positionen) $\rightarrow$ Implementierung durch Umsetzen von class-Werten
+	\end{itemize}
+	\subsection{Javascript Dokumenten Schnittstelle}
+	\begin{itemize}
+		\item Ziel: Zugriff von Javascript auf das Dokument in textueller Darstellung
+		\item open(): öffnet Dokument zum Neubeschreiben
+		\item close(): schließt Dokument
+		\item write(): schreibt Text in das Dokument
+		\item writeln(): schreibt Zeile in das Dokument
+		\item Anwendung:
+		\begin{itemize}
+			\item Reines write: Ergänzt das Dokument (aber nur innerhalb des Dokuments, das gerade geparsed wird dh. innerhalb vn eingebetteten script-Tags)
+			\item open-write-close Zyklus: schreibt in ein anderes Fenster aus einem fremden Dokument heraus (close nötig da sonst Browser das Dokument nicht lädt)
+		\end{itemize}
+		\item starke Einschränkung da nur Erweiterung des Dokument
+		\item Einsatz bei: Live Query Responses, Webchat, Multi-Frame/Multi-Window Anwendungen
+	\end{itemize}
+	\subsection{Multipart Mime Type}
+	\begin{itemize}
+		\item MIME Type: Angabe des Dateityps in verschiedenen Internet Protokollen
+		\item ???
+	\end{itemize}
+	\subsection{DOM Api}
+	\begin{itemize}
+		\item DOM enthält Dokumententteile in OO Baumstruktur
+		\item DOM-Api erlaubt diese OO Sicht zu modifizieren (Finden,Löschen,Erzeugen,Append,Preprend,Inhalt modizizieren, Attribute modifizieren)
+		\item Zugriff aus Javascript
+		\item Wichtige Funktionen:
+		\begin{itemize}
+			\item createElement: erzeugt einen Knoten
+			\item setAttribute: setzt einen Attributwert (Zugriff meistens auch über Javascript Property möglich)
+			\item setNodeValue: setzt den Textwert eines Knoten
+			\item appendChild: fügt einen Knoten an eine Liste von Kindern
+			\item removeChild: entfernt ein Kind
+			\item replaceChild: ersetzt ein Kind
+		\end{itemize}}
+		\item Vorteil: robuste API, flexibel, Standardisiert
+		\item Nachteil: hoher Funktionsaufwand für kleine Änderung, relativ langsam 
+		\item Probleme:
+		\begin{itemize}
+			\item Browser-Abhängigkeiten: Unterschiedliche Implementierung $\rightarrow$ Verschiedenen Code ausliefern nach User Agent Header; Dynamisch erkennen und Code ansteuern
+			\item Flackern beim Neuaufbau $\rightarrow$ Unsichtbar schalten+Aufbauen+Sichtbar schalten
+		\end{itemize}
+	\end{itemize}
+	\subsection{Slow Load}
+	\begin{itemize}
+		\item alias: Reverse Ajax, Comet
+		\item Idee: Offenhalten einer Verbindung durch sehr langsame Server
+		Server-Response
+		\item Ziel: Server will den Client informieren das was passiert ist
+		\item Umsetzung: 
+		\begin{itemize}
+			\item Slow load aus einem Hidden Frame/IFrame angefordertn – bleibt damit unsichtbar
+			\item Slow load liefert keine Daten oder Daten mit "NOP"-Semantik, bis der Server dann wirklich etwas vom Client will
+		\end{itemize}
+		\item Realisierungen:
+		\begin{itemize}
+			\item Script-Tag Slow Load: Will der Server etwas vom Client, sendet script-Tag die bei Ankunft am Client verarbeitet wird
+			\item XHR Slow Load: Server zögert die Antwort auf einen XHR lange hinaus
+		\end{itemize}
+		\item Nachteil: Server muss Kommunikationskanal offen halten, skaliert schlecht
+	\end{itemize}
+	\subsection{Polling}
+	\begin{itemize}
+		\item Idee: Client fragt Server regelmäßig ob was passiert ist
+		\item Ziel: Cliet will wissen ob was passiert ist
+		\item Nachteil: unnötige Belastung, skaliert schlecht, erhöht Latenzzeit durch dauerhafte Anfragebehandlung
+	\end{itemize}
+	\subsection{Metatag Refresh}
+	\begin{itemize}
+		\item Idee: Das Refresh Meta-Tag kann ein reload derselben URL auslösen
+		\item Sollte serverseitig durch Status-Tracking (Bsp: Cookie) unterstützt sein.
+		\item Angabe im HTML-Dokument dass das Dokument regelmäßig neu geladen wird
+		\item Erweiterung um redirect
+	\end{itemize}
+\section{Serverseitige Performance}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item Probleme:
+		\begin{itemize}
+			\item Webserver mit 10k und mehr Connections pro Sekunde
+			\item Problem wird schwerer durch W2.0 stärker fragmentiertes Web (Mehr Ressourcen (Bilder, CSS, JS), mehr Kanäle (Websockets),häufigere Interaktion (Responsive Web))
+		\end{itemize}
+		\item Lösungen: Effizientere Nutzung der Protokolle
+		\begin{itemize}
+			\item Persistente Verbindugen: mehere http-Requests pro tcp-Verbindung (Sockets)
+			\item Request Pipelining: Mehere Requests statt stop-and-wait (mehere Anfragen senden anstatt auf Antwort auf einzelne Requests zu warten)
+			\item Parallele Verbindungen: Mehere parallele tcp-Verbindungen
+			\item Preloading: früh laden und damit Ressourcen schon vorhanden wenn benötigt
+			\item Caching: nur einmal laden und wieder verwenden
+			\item Chunked Transfer: Übertragung von kleinen Teilen sobald bereit
+			\item Rohe Komprimierung: zip auf den Inhalten
+			\item Smarte Komprimierung: BSON (Effizienten Encoding von JSON), ProtoBuf (BSON von Google)
+			\item Websockets: Socket für http-Requests (weniger header overhead)
+			\item SPDY und HTTP 2.0: neue Header für Steuerung
+		\end{itemize}
+	\end{itemize}
+	\subsection{SPDY und HTTP 2.0}
+	\begin{itemize}
+		\item Ziele:
+		\begin{itemize}
+			\item Reduktion der Latenz
+			\item bessere Nutzung der Bandbreite
+			\item neue Konzepte: Server Pushing und Hinting, Priorisierung, TCP Multiplexing
+			\item Weitgehende Rückwärtskompatibilität
+			\item Nahtloses, dynamisches Upgrading
+		\end{itemize}
+		\item Multiplexing: alle Requests über eine TCP Verbindung (dadruch nur einmaliges 3way Handshaking Aufwand)
+		\item Server Pushing: Server sendet Ressource, ohne das Client schon requestet hatte
+		\item Server Hinting: Server informiert Client das best. Ressource nötig sein wird; Client überpüft ob im Cache wenn nicht dann Request
+	\end{itemize}
+	\subsection{Ressourcen Zuteilung}
+	\begin{itemize}
+		\item ???
+	\end{itemize}
+	\subsection{Node.js}
+	\begin{itemize}
+		\item I/O Framework für Serverside Javascript
+		\item Vorteil: sehr kompakte Server, sehr leistungsfähig bei hohen Connection, Reduziert Anzahl Technologiebrüche in Web Anwendungen (nur eine Sprache für Client und Server)
+	\end{itemize}
+\section{Privatheit}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item \glqq Privacy in Private\grqq:
+		\item \glqq Privacy in Public\grqq:
+		\item \glqq Interpersonal Privacy \grqq:
+		\item \glqq Zero Privacy\grqq:
+	\end{itemize}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item ???
+	\end{itemize}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item ???
+	\end{itemize}
+	\subsection{Allgemein}
+	\begin{itemize}
+		\item ???
 	\end{itemize}
 \end{document}
