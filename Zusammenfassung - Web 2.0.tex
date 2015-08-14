@@ -1293,21 +1293,139 @@ auf mehreren Plattformen
 \section{Privatheit}
 	\subsection{Allgemein}
 	\begin{itemize}
-		\item \glqq Privacy in Private\grqq:
-		\item \glqq Privacy in Public\grqq:
-		\item \glqq Interpersonal Privacy \grqq:
-		\item \glqq Zero Privacy\grqq:
-	\end{itemize}
-	\subsection{Allgemein}
-	\begin{itemize}
+		\item \glqq Privacy in Private\grqq: Grundsätzliches Recht auf Privatheit
+		\item \glqq Privacy in Public\grqq: Informationelle Selbstbestimmung (jeder hat das Recht selbst zu entscheiden welche Daten über sich von anderen gebraucht werden und welche Daten auf einen selbst einwirken dürfen)
+		\item \glqq Interpersonal Privacy \grqq: Austausch von Informationen so, daß es maximal sozial nützlich
+		erscheint (Facebook, Privatheit als ökonomisches Gut das getauscht werden kann)
+		\item \glqq Zero Privacy\grqq: Privatheit als verloren gegangene Eigenschaft
+		\item digitales Panoopticon: Datensammlungen führen allein durch ihr Bestehen bereits zu einer Verhaltensänderung
+		\item Verlust der Privatheit
+		\begin{itemize}
+			\item Im ökonomischen Raum durch Erstellung von Profilen (Amazon, Google)
+			\item Im öffentlichen Raum durch Registrieren abweichenden Verhaltens (FBI, BND)
+			\item Im sozialen Raum durch den Massenwahn der Selbstpreisgabe (Facebook,G+)
+			\item Im digitalen Raum durch digitaler Angreifer
+		\end{itemize}
 		\item ???
 	\end{itemize}
+\section{Attention Economy}
+\section{Ruby on Rails}
 	\subsection{Allgemein}
 	\begin{itemize}
-		\item ???
+		\item Rails: Application Framework for web development (Hauptziel: Agiles Programmieren)
+		\item Server: Ruby, nutzt Javascript Snippets
+		\item Ruby: Interpretierte Sprache ähnlich zu Python (Duck Typing, Garbage Collection, Objekt-orientiert)
+		\item Aufbau nach MVC Paddern
+		\begin{itemize}
+			\item Model(M): Speichert den Status
+			\item View(V); Stellt das Model dar für den Benutzer
+			\item Controller(C): Erlaubt den Benutzer Veränderungen am Model
+			\item Mehere Views und Controller pro Model möglich
+			\item Änderung der Daten nur durch Methoden des Model dadurch Daten einfacher korrekt im Sinne des Models zu handeln und  Konsistenz zwischen Darstellung und Modell ist leichter zu realisieren
+		\end{itemize}
+		\item die Einhaltung der Struktur wird durch Rails selber gewährleistet durch die Generierung von entsprechenden Templates
+		\item Bietet Möglichkeiten zur automatischen Erstellung der Datenbankstruktur auf Basis der Models (Scaffolding)
 	\end{itemize}
+	\subsection{Genereller Ablauf}
+	\begin{itemize}
+		\item Dispatch: Aus der Url wird vergestellt welche Aktion ausgeführt werden soll(Aufbau: controller/action; jeder Controller abc wird in Datei abc\_controller.rb implementiert)
+		\item Udate: Aus der Action wird das View generiert (Action abc hat View mit namen abc.rhtml)
+		\item Naming: Aus dem Klassen-Namen die Klassen-Definition erhalten (Klasse Abc ist in Datei xyz.rb definiert)
+	\end{itemize}
+\section{Clientseitige Performance}
 	\subsection{Allgemein}
 	\begin{itemize}
-		\item ???
+		\item Früher: Javascript Performance egal da Script nur für kleine Aufgabe, Webseite nur solange aktiv wie die Lesedauer war
+		\item Heute: Javascript Performance sehr wichtig da komplette Anwendungen in JS, höhere Verweildauern der User, höhere Anzahl an Transaktionen, Erwartungshaltung des Users ist eine andere
+		\item Tool YSlow bietet Hinweise auf mögliche Verbesserungen
+		\item Parallele Requests werden durch den Browser limitiert
 	\end{itemize}
+	\subsection{Profiling}
+	\begin{itemize}
+		\item Eigene W3C Normen zu Performance Messung
+		\item Möglichkeiten:
+		\begin{itemize}
+			\item Firebug console.timeStamp: Wann wird ein bestimmter Code durchgeführt?
+			\item Firebug console.time und console.timeEnd: Wie langer dauert die Ausführung eines Codeabschnittes?
+			\item Firebug Profiling: Automatische Auswertung von Laufzeiten für eine Statistik 
+		\end{itemize}
+	\end{itemize}
+	\subsection{Javascript-Optimierung}
+	\begin{itemize}
+		\item da nicht compiliert muss Entwickler per Hand Optimieren
+		\item Klassische Techniken:
+		\begin{itemize}
+			\item Loop invarianmten Code vor den Loop stellen
+			\item Loop Unrolling
+			\item Expression Minimization
+			\item Dot Minimization
+		\end{itemize}
+		\item Ajax spezfische Optimierung
+		\begin{itemize}
+			\item Late DOM Attachment
+			\item Minimiere Zahl der Server-Calls
+			\item Client Side Caching
+			\item asynchrone Ablaufoptimierung
+			\item minimierung der Daten
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{Dot Minimzation}
+	\begin{itemize}
+		\item Problem: mehrfacher Zugriff auf Variablen im selben Context ist langsam das jedes Mal eine Kette von Pointern abgearbeitet werden muss
+		\item Code: app.clock.hands.\{hour\textbar minute\textbar second\}
+		\item Besser: einmalige Abarbeitung der gemeinsamen Pointern und anschließend Zugriff auf die Variablen
+		\item Lösung: var hands = app.clock.hands; var h = hands.hour; var m = hands.minute;
+	\end{itemize}
+	\subsubsection{Expression Minization}
+	\begin{itemize}
+		\item Problem: Berechnung von Shared Subexpressions ist unnötige Aufwand
+		\item Code: var a = (b+c)*(b+c)+3*(b+c)
+		\item Besser: einmalige Berechnung von shard subexpressions (aus dem Beispiel: a+b)m dadurch nur einmalige Berechnung
+		\item Lösung: var x = b+c; var a = x*x+3*x;
+	\end{itemize}
+	\subsubsection{Late DOM Attachment}
+	\begin{itemize}
+		\item Problem: Jede Änderung der DOM bewirkt Anstoßen von Browser Layout Mechanismen
+		\item Besser: Erst DOM Knoten vollständig aufbauen und anschließend einmalig in das document-Objekt einbauen
+	\end{itemize}
+	\subsubsection{Minimiere Zahl der Server Calls}
+	\begin{itemize}
+		\item Problem: Server Call braucht viel Zeit (Latenz + Verarbeitung + Latenz)
+		\item Früher: 1 Http Call eine neue TCP Verbindung mit 3-way Handshake (SYN, ACK, SYNACK)
+		\item Heute: Request Pipelining und Request Parallelization
+		\item Trotzdem nicht besser da hoher Zeitbedarf für Warten bei zusätzlicher Server Roundtrip
+		\item Besser: nur eine JS Datei und eine CSS Datei dadurch nur einmaliger Aufbau der TCP Verbindung zum Server
+	\end{itemize}
+	\subsubsection{Nutze Google Downloader}
+	\begin{itemize}
+		\item Problem: Download von Javascript Library vom Hersteller langsam
+		\item Besser: nutzen des Google Downloaders (nutzt Google Cloud)
+		\item Problem: nötiges Vertrauen in Google, Google erhält Daten über die Anwendung, User via Logging und Referrer Header
+	\end{itemize}
+	\subsubsection{Asynchrone Scheinoptimierung}
+	\begin{itemize}
+		\item Problem: ???
+		\item Besser: Bearbeite die Dinge, während der Nutzer anderweitig beschäftigt ist (vorrausschauend laden)
+		\item Aber: GUI nicht blockieren und nicht zu viel umsonst tun
+	\end{itemize}
+	\subsubsection{DOM Node Leak}
+	\begin{itemize}
+		\item Problem: Wie entferne ich für den User einen Teil des Dokumentes (Bsp: Info-Panel)
+		\item Lösung 1: Unsichtbar machen - Removel by Hiding (CSS Atribut) aber Node bleibt im DOM und Anwendung erzeugt immer neue Nodes und Gefahr von Nodes mit gleicher ID $\rightarrow$ Nicht immer neu generieren sondern reuse
+		\item Lösung 2: Aus DOM entfernen – Removal by Detachment aber hoffen das Garbage Collector sich um die Speicherbereinigung kümmert $\rightarrow$ Reuse und dazu Node statt im Dokument in DOM Node Pool (Array als Zwischenspeicher) parken
+	\end{itemize}
+	\subsubsection{Zirkuläre Referenzen}
+	\begin{itemize}
+		\item Problem: Zirkuläre Referenzen sind klassisches Problem für manche Garbage Collectors
+		\item Besser: Lösen zirkulärer Referenzen über Finalizer Methoden (muss vom Programmierer aufgerufen werden) $\rightarrow$ entfernt die Verbindungen zu andern Objekten
+	\end{itemize}
+	\subsubsection{http Optimierung}
+	\begin{itemize}
+		\item Client-Side Caching: Vielzahl verfügbarer Header für Caching Einstellung am Client, Ansteuerung durch selbst Erstellung des Headers oder Server-abhängige Konfiguration
+		\item Reduktion der Zahl der Server Calls: Alles in eine CSS / JS Datei (Tools: less, closure)
+		\item Timing: Pipelining von Calls; Lookahead Strategien (Die Dinge tun, während der User auf anderes achtet / wartet)
+	\end{itemize}
+\section{Ajax Programmierung jQuery und extJS}
+\section{HTML 5}
+\section{Leaking}
 \end{document}
