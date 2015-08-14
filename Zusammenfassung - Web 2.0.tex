@@ -676,13 +676,16 @@ auf mehreren Plattformen
 	\end{itemize}
 	\subsubsection{The money supply}
 	\subsubsection{The security of transaction block chains}
+	
+	
+	
 	\section{Ajax und Web 2.0 Sicherheit}
 	\subsection{Allgemein}
 	\begin{itemize}
 		\item Motive der Angreifer
 		\begin{itemize}
-			\item Ausspähen von Daten
-			\item Modifikation von Transaktionsdaten
+			\item Ausspähen von Daten (PIN, TAN, Passwörter, Verhaltensweisen, etc.)
+			\item Modifikation von Transaktionsdaten (Anderer Betrag/Konto)
 			\item Installation von Mal- und Spyware
 			\item Aktivieren von Bot-Netzen
 			\item Schädigung von Personen bzw. Firmen
@@ -701,29 +704,37 @@ auf mehreren Plattformen
 			\item Den Content Provider zu einem Setzen von Links verleiten 
 			\item Eingabe spezielle formatierten Inputs 
 		\end{itemize}
-		\item Konzentation auf Cross Site Angriffe
+		\item Viele Sicherheitsthemen im Web haben nicht direkt mit Ajax zu tun haben
+		\item Konzentation auf Cross Site Angriffe (XHR, CSS, Scripting, Requests)
 		\item Weitere Probleme: Soziale Probleme des Mitmach Models (Multible Identitäten)
 	\end{itemize}
+	
 	\subsection{Sicherheitsmodelle für mobilen Code}
 	\begin{itemize}
 		\item Problem: Mobiler Code = Ausführebare Datei, die vom Server geladen wird
+		\item Problem: Die Unterscheidung von Daten und Code ist schwer bis unmöglich
 		\item Lösungen: Sandbox, Signierter Code, Policy Files
 	\end{itemize}
 	\subsubsection{Sandbox}
 	\begin{itemize}
 		\item Mobiler Code läuft in Sandbox und verhindert dadurch Zugriff auf lokale Ressourcen 
+		\item Modell von Javascript: Sandbox in \glqq Same Origin\grqq Variante
 		\item Problem: ggf. zu weite Eingrenzung der Rechte (keine clientseitige Persistenz), kein kontrolliertes Durchbrechnen möglich
 	\end{itemize}
 	\subsubsection{Signierter Code}
 	\begin{itemize}
 		\item Code wird durch Instanz signierte, Signierter Code erhält weitergehende Rechte
 		\item Problem: Vertrauen an Drittinstitutionen, Unklar was weitergehende Rechte bedeuten, Nicht sinnvoll praktikabel (hoher Aufwand)
+		\item nicht defensiv: erst im Nachhinein bemerkbar, dass etwas schief gegangen ist
 	\end{itemize}
 	\subsubsection{Policy Files}
 	\begin{itemize}
 		\item User kann steuern, welche Rechte an das Script freigegeben werden (sehr Flexibel)
 		\item Problem: ggf. zu kompliziert für User, nicht zero install
+		\item sicherheitstechnisch: gut durchdacht, aber nicht von Anfang an $\rightarrow$ Nutzer muss dies tun
 	\end{itemize}
+	
+	
 	\subsection{Sicherheit von Javascript - Same Origin Sandbox}
 	\subsubsection{Allgemein}
 	\begin{itemize}
@@ -746,7 +757,7 @@ auf mehreren Plattformen
 		\end{itemize}
 		\item Problem: ISP-Anomalität (www.myisp.com/dave/script1.js und www.myisp.com/john/script1.js können aufeinander zugreifen), document.domain Property (www.bsp.com und wiki.bsp.com können nicht interagieren $\rightarrow$ document.domain = \glqq bsp.com\grqq)
 		\item XHR, localStorage und Web Messaging unter liegen Same Origin Restriktion
-		\item Bilder, CSS und Skripte unterliegen \textbf{nicht} Same Origin Restriktion $righarrow$ dadurch Attacken möglich: Web Spoofing, GUI Redressing, Seiteübernehmen
+		\item Bilder, CSS und Skripte unterliegen \textbf{nicht} Same Origin Restriktion $\rightarrow$ dadurch Attacken möglich: Web Spoofing, GUI Redressing, Seiteübernehmen
 		\item Websockets haben eigene Sicherheitsschicht
 		\item Cooklies unterliegen browserseitigen Einstellungen
 		\item Flash Cookies unterliegen browser- und Flash-Einstellungen
@@ -811,7 +822,12 @@ auf mehreren Plattformen
 	\begin{itemize}
 		\item Inhalte können von Cross-Site über iframes eingebunden werden
 		\item Problem: Fremde Site verändert eigene Site, Nutzer sieht nicht wer für den Inhalt verantwortlich, Site macht sich fremde Inhalte zu Nutze
-		\item Lösung: sichtbar einbetten, iframe busting (Javascript der eingebetten Seite greift auf parent zu und schreibt sich auf höchster Ebene), Server setzt X-Frame-Options Header auf Deny (komplettes Verbot), Allow-From url (Einbinden wenn Basisseite bestimmte URL ist) oder Sameorigin (Einbinden nur wenn Basisseite same origin ist)
+		\item Lösung:
+		\begin{itemize}
+			\item sichtbar einbetten
+			\item iframe busting (Javascript der eingebetten Seite greift auf parent zu und schreibt sich auf höchster Ebene)
+			\item Server setzt X-Frame-Options Header: \textbf{Deny }(komplettes Verbot), \textbf{Allow-From url} (Einbinden wenn Basisseite bestimmte URL) oder \textbf{Sameorigin} (Einbinden nur wenn Basisseite same origin ist)
+		\end{itemize}
 	\end{itemize}
 	\subsubsection{Cross Site CSS}
 	\begin{itemize}
@@ -823,7 +839,7 @@ auf mehreren Plattformen
 		\item Definition: Webseite stammt aus einer Domain und lädt Skripte von einer anderen Domain
 		\item WICHTIG: Cross Domain XHR verhindert durch Sandbox, Cross Domain Scripting wird nicht verhindert durch Sandbox
 		\item Warum? Eigentlich wenig Sinn ausser bei Zugriff auf Mashup (Google Maps, Flickr Gallerie)
-		\item Probleme: Fremdes Script zerstört Aussehen meiner Web Site völlig, Fremdes Script liest Werte aus Formularen aus
+		\item Probleme: Fremdes Script zerstört Aussehen meiner Web Site völlig, Fremdes Script liest Werte aus Formularen aus, füllt Werte in Formulare ein oder modifiziert sie
 
 		\item Bookmarklet = ist ein kleines in JavaScript geschriebenes Makro, das als Bookmark abgespeichert wird und dadurch die Funktionen eines Webbrowsers erweitert; Problem: laufen mit den Rechten der aktuell angezeigten Seite und können so Cookies-Stehlen und remote-Code hinzufügen
 	\end{itemize}
@@ -857,22 +873,22 @@ auf mehreren Plattformen
 			\item Objekte gehören einem User
 			\item UserId hat bestimmte Rechte auf dem Objekt
 			\item Programm unter einen UserId hat bestimmte Zugriffsrechte
-			\item Problem: Kann Zugriffsrechte nicht mit anderen User teilen
-			\item Lösung: Gruppenkonzept
+			\item \textbf{Problem}: Kann Zugriffsrechte nicht mit anderen User teilen
+			\item \textbf{Lösung}: Gruppenkonzept
 		\end{itemize}
 		\item Group Based Rights
 		\begin{itemize}
 			\item Objekte haben auch eine Gruppe
 			\item User gehören in eine Gruppe
 			\item User in einer Gruppe haben bestimmte Rechte
-			\item Problem: Gruppenstruktur kann sehr komplex werden
-			\item Lösung: Access Control Lists
+			\item \textbf{Problem}: Gruppenstruktur kann sehr komplex werden
+			\item \textbf{Lösung}: Access Control Lists
 		\end{itemize}
 		\item Access Control Lists (ACL)
 		\begin{itemize}
 			\item Objekte haben eine ACL
 			\item ACL weiss was welcher User darf
-			\item Problem: Recht hängt nur vom User ab, nicht vom Programm oder Kontext des Programmes	
+			\item \textbf{Problem}: Recht hängt nur vom User ab, nicht vom Programm oder Kontext des Programmes	
 		\end{itemize}
 		\item Capabilities
 		\begin{itemize}
