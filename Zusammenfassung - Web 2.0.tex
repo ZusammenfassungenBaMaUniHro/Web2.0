@@ -1568,6 +1568,66 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 		\item Timing: Pipelining von Calls; Lookahead Strategien (Die Dinge tun, während der User auf anderes achtet / wartet)
 	\end{itemize}
 \section{Ajax Programmierung jQuery und extJS}
+	\subsection{Arten von Toolkits}
+	\begin{itemize}
+		\item Client-seitig
+			\begin{itemize}
+				\item Paradigma: Programmierer entwickelt Seiten für den Client;Nutze serverseitige Funktionen via URL
+				\item Toolkit: Wiederverwendbarer Javascript / CSS / HTML Code; Code, Funktionen, Widgets, Muster;Standardisierte Client-seitige Tasks
+				\item Interface: HTML, XML und JSON produziert von Server, Dynamische Seiten-Adaptierung durch AJAX
+			\end{itemize}
+		\item Server-seitig
+			\begin{itemize}
+				\item Paradigma: HTML, JS, CSS, XML
+				\item Toolkit: Perl, PHP, Java, Python $\rightarrow$ Funktionen für die Seitengenerieriung
+				\item Interface: meistens HTML mit eingebetteten Javascript
+			\end{itemize}
+		\item Auswertung: ????
+		\item jQuery und extJS: Bibliothken für die Implementierung von Erweiterungen des DOMS
+	\end{itemize}
 \section{HTML 5}
+	\subsection{Entwurfsziele des W3C }
+	\begin{itemize}
+		\item Vollständige Rückwärtskompatibilität: bisherighe HTML Normen und Browser Praxis weiterhin unterstützt
+		\item Bessere Erweiterungsfähigkeit: Schrittweise Erweiterung des Standards (schnelle Reaktion auf neue Entwicklungen)
+		\item Robusteres und vollständiger definiertes Verhalten: einige Semantiken der Tags nicht vollständig geklärt
+		\item Separation von Concerns: Tags formatieren nicht mehr den Inhalt (b-Tag, em-Tag), Formatierung nur noch über CSS
+		\item Barriere-Freiheit
+		\item Volle Unicode Unterstützung
+	\end{itemize}
+	\subsection{Struktur und Semantik}
+	\begin{itemize}
+		\item Neue Elemente gestatten ein besseres Markup von Inhalten (article, footer, header, mark, figcaption)
+		\item Inhaltstragende Elemente
+		\begin{itemize}
+			\item section = Abschnitt eines Dokumentes welches explizit im Outline/TOC erscheinen soll (Kind mit h1 bis h6)
+			\item article = Vollständig in sich abgeschlossener Artikel, der auch separat genutzt werden kann (Blog-Eintrag, User-Kommentar)
+			\item aside = Zusatzinformation mit Bezug zum sonstigen Inhalt, die aber getrennt vom sonstigen Inhalt aufscheinen kann (Sidebar)
+			\item Definitionen sind sinnvoll aber willkürlich $\rightarrow$ muss man sehen wie es aufgegriffen wird
+		\end{itemize}
+		\item Untergliedernde Element (Teil einer Section)
+		\begin{itemize}
+			\item header = Enthält h1-h6 aber kann auch Lead-Absatz, Abstract enthalten
+			\item footer = zusätzliche ergänzende Information (Copyright, Autor, Meta)
+			\item nav = bündelt Links und navigatorische Elemente
+		\end{itemize}
+		\item Gruppierende Elemente
+		\begin{itemize}
+			\item details = Zusatzinformation, die User nach Wunsch ein‐ und ausblenden kann
+			\item figure = Gruppierungselement, das auch außerhalb des normalen Flows dargestellt werden darf (wie in Latex floats)
+			\item figurecaption = Teil von Figure; Bildbeschreibung
+		\end{itemize}
+		\item Neue Input Typen
+		\begin{itemize}
+			\item color = Colorpicker
+			\item date = Kalender zur Datumsauswahl
+			\item datetime = data + Uhrzeit
+			\item und viele weitere
+		\end{itemize}
+		\item Erweiterung der Forms durch neue Elemente. Dadurch bessere Validierung und Visualisierung
+		\item video Tag für Standardisiertes Einbinden von Video (dadurch keine Abhänigkeiten mehr an Flash usw.)
+		\item audio Tag ist wie video Tag nur für Audio
+		\item ???
+	\end{itemize}
 \section{Leaking}
 \end{document}
