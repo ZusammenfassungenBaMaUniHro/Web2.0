@@ -6,6 +6,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{url}
+\usepackage{listings}
+ \usepackage{color}
 
 \usepackage[labelformat=empty]{caption}
 \title{Zusammenfassung - Web 2.0}
@@ -1064,10 +1066,93 @@ auf mehreren Plattformen
 	
 	
 	\section{Javascript Pattern}
-	\begin{itemize}
-		\item ???
-	\end{itemize}
-	
+	\subsection{Scope Pattern}
+		\textit{$\rightarrow$ äußerer Scope}\\
+		function name() \{\\
+		\textit{$\rightarrow$ innerer Scope}\\
+		\};\\
+		\textit{$\rightarrow$ äußerer Scope}\\
+		\begin{itemize}
+			\item innerer: 
+			private instance \textit{var x = ...} oder 
+			public instance \textit{this.y = ...}
+			\item äußerer: 
+			class property \textit{name.z = ...} oder
+			generate inheritance \textit{name.prototyp = ...} oder
+			modify inheritance \textit{name.prototype.u = ...}
+			\item \textbf{Datenkapselung} bedeutet, dass das Erweitern des globalen Objekts sowie der DOM-Objekte auf ein Minimum reduziert wird. Ein Script sollte den globalen Scope nicht für seine Arbeitsdaten verwenden und globale Variablen möglichst vermeiden
+		\end{itemize}
+		\subsection{Module Pattern}
+		\begin{itemize}
+			\item We’ll simply create an anonymous function, and execute it immediately. All of the code that runs inside the function lives in a closure, which provides privacy and state throughout the lifetime of our application.\\
+			(\url{http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html})
+			\item Mittels \textit{return} können Variablen/Methoden exportiert werden.
+			\item Lexikalische Stabilität: 
+			\begin{itemize}
+				\item Optimierer (hier: Closure) können umbennen Bsp: \textit{numberOfStudents} in \textit{n}
+				\item Wenn Optimierer den kompletten Code kennt unproblematisch, denn dann in allen Modulen konsistent umbenannt
+				\item \textbf{1. Problem}: 2 separate Läufe des Optimierers auf Library und Nutzer der Library
+				\item \textbf{2. Problem}: Optimierte Library und nicht-optimierter Code, der sie nutzt
+				\item \textbf{Lösung} bei Closure: Quotes im JSON Rückgabe-Objekt verhindern Umbenennung durch Closure Compiler.
+			\end{itemize}
+		\end{itemize}
+		\subsection{Revelation Pattern}
+		\begin{itemize}
+			\item Description: it is about having private methods, which you also expose as public methods
+			\item Ähnlich wie das Exportieren im Module Pattern nur ohne return sondern durch Zuweisung im Körper (zu einer vorher definierten Variable im äußeren Scope)
+		\end{itemize}
+		
+		\subsection{Anti-Pattern: Implizites Typecasting}
+		\begin{itemize}
+			\item Erscheint nicht im Quelltext
+			\item potenzielle Fehlerquelle, wenn unabsichtlich verwendet 
+			\item Bsp. binäre Operatoren
+			 \begin{lstlisting}
+(20 + 5) + "px"		// ist klar: "25px"
+20 + (5 + "px") 	// ist klar: "205px"
+20 + 5 + "px" 		// ist nicht so ganz klar !
+			\end{lstlisting}
+		\end{itemize}
+		\subsection{Enforcing-New Pattern}
+		\begin{itemize}
+			\item Ohne das Erzwingen eines "new" bei der Objekterzeugung kann es zu Fehlverhalten kommen
+			 \begin{lstlisting}
+function Waffle() {this.tastes = "yummy";} // Konstruktor
+// Problem: Vergessenes new:
+var goodMorning = Waffle();
+console.log(typeof goodMorning); 	// "undefined"
+console.log(window.tastes); 		// "yummy"
+			\end{lstlisting}
+			\item Lösung
+			\begin{lstlisting}
+if (!(this instanceof Waffle)) {return new Waffle();}
+			\end{lstlisting}	
+		\end{itemize}
+		\subsection{Nicht-Überschreibung}
+		\begin{itemize}
+			\item \textbf{Problem}: Kein Schutz des globalen Scopes vor Überschreiben
+			\begin{lstlisting}
+var MYAPP = {}; 		// unsicher, wenn MYAPP bereits existiert
+if (typeof MYAPP === "undefined"){var MYAPP = {};} // besser aber aufwendig
+var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
+			\end{lstlisting}	
+		\end{itemize}
+		\subsection{Chaining Pattern}
+		\begin{itemize}
+			\item \textit{obj.increment().add(3).shout();}
+			\item Gestattet sehr kompakte, übersichtliche Programme und wird sehr oft in jQuery benutzt.
+		\end{itemize}
+		\subsection{Hinzufügen von Funktionalität}
+		???????
+		\subsection{Browser-Weiche bei Initialisierung}
+		\begin{itemize}
+			\item Um eine Browser-Kompatibilität zu gewährleisten
+			\item Bspw. kennt der IE \textit{window.addEventListener} nicht, sondern \textit{document.attachEvent} und ältere Browser verwenden \textit{utils.addListener}
+		\end{itemize}
+		\subsection{That}
+		\begin{itemize}
+			\item Because this frequently changes when you change the scope by calling a new function, you can't access the original value by using it. Aliasing it to that allows you still to access the original value of this. (\url{http://stackoverflow.com/a/4886696})
+		\end{itemize}
 	
 	
 	
