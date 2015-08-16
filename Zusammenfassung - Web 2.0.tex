@@ -928,6 +928,9 @@ auf mehreren Plattformen
 	\begin{itemize}
 		\item ???
 	\end{itemize}
+	
+	
+	
 	\section{Einführung in Javascript}
 	\subsection{Allgemein}
 	\begin{itemize}
@@ -1029,12 +1032,16 @@ auf mehreren Plattformen
 			\item Dart = Javascript in C und Java erweitert (bisschen wie TypeScript)
 		\end{itemize}
 	\end{itemize}
+	
+	
+	
 	\section{JSON}
 	\begin{itemize}
 		\item JSON = Javascript Object Notation
 		\item Format für die Serialisierung von Objekten
 		\item Unterstütze Datenstrukturen: Objekte, Arrays, Strings, Boolean, Integer, null
 		\item Bewertung: kompakter als XML (weniger Overhead als XML, weniger aufwendiges Parsen), keine Attribute, keine DTD
+		\item JSON Parse rund 10x schneller als XML Parse
 		\item Einsatzbereiche: Server generiert JSON und Client generiert in JS aus JSON ein Objekt
 		\item Risiko: Server sendet mehr als JSON Subset
 		\item Erweiterung: JSONP (JSON + Padding)
@@ -1045,11 +1052,25 @@ auf mehreren Plattformen
 			\item Ergebnis wird als dynamisches Script Tag dem Dokument hinzugefügt
 		\end{itemize}
 		\item Ergebnis: Keine Restriktion hinsichtlich XHR same-origin, da Script Tag; JSON wird an richtiger Stelle in Javascript eingebaut
+		\item Erweiterung JSONRequest:
+		\begin{itemize}
+			\item Analog wie XMLHTTPRequest, aber kann aber nur JSON entgegennehmen
+			\item keine same-origin Restriktion
+			\item Effekt: Sicherer und flexibler; Kein Schaden, da nur Daten übertragen; Keine Restriktion
+		\end{itemize}
+		
 	\end{itemize}
+	
+	
+	
 	\section{Javascript Pattern}
 	\begin{itemize}
 		\item ???
 	\end{itemize}
+	
+	
+	
+	
 	\section{Smallworld und Powerlaw Netzwerke}
 	\subsection{Grundgedanke}
 	\begin{itemize}
