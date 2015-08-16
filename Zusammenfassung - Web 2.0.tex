@@ -932,12 +932,39 @@ auf mehreren Plattformen
 	\subsection{Allgemein}
 	\begin{itemize}
 		\item Ziel: Dynamische Seiten ohne Server-Interaktion, Adaptive Webseiten mit rascher Reaktion auf Client-Interaktion, Rechenaufwand auf Client verteilen
-		\item Lösungen: Javascript, VB Script, Java Applets, Active X
-		\item Später neue Anforderungen: Zugriff auf Sensoren (GPS, Webcam, Mic), Performane Boost durch clientseitige Parallelität und stärkere Kontrolle der User (App Stores, Binary Only Module)
+		\item Lösungen: 
+		\begin{itemize}
+			\item Javascript (Interpretierte Sprache)
+			\item VB Script (MS Alternative zu Javascript)
+			\item Java Applets (Bytecode VM, eingebettet oder PlugIn)
+			\item Active X (Kompilierte Programme auf Intel Architektur)
+		\end{itemize}
+		
+		\item Später neue Anforderungen: Zugriff auf Hardware \& Sensoren (GPS, Webcam, Mic), Performane Boost durch clientseitige Parallelität und stärkere Kontrolle der User (App Stores, Binary Only Module)
+		\item Javascript kann: Zugriff auf Webseite+Header, Event Handler, Schnittstelle Java - JavaScript
+		\item Vorteile von JavaScript:
+		\begin{itemize}
+			\item Extrem weites deployment
+			\item Halbwegs uniform 
+			\item Viele Client-seitige Libraries
+			\item Beginnender Server-seitiger Einsatz (node.js)
+			\item Homogenes Werkzeug auf Client \& Server
+			\item Langsam etwas effizienter (Hotspot, V8, asm.js)
+			\item Am Browser: Sicherer als Java \& ActiveX 
+		\end{itemize}
 		\item Javascript ist: imperativ, objekt-prientiert, funktional, scripting Sprache (nicht funktional im Sinne von Haskell und Co, nicht oo wie C++ oder Java)
-		\item Programmierer kann eigenen Programmierstiel wählen d.h. wenig Zwang der Sprache
+		\item Programmierer kann eigenen Programmierstiel wählen d.h. wenig Zwang der Sprache 
+		\item Nutzung als universelles Target, da sehr weit verbreitet (Jeder Browser kann Javascript)
 		\item Problem: Javascript bietet wenig Garantien (keine Typsicherheit, wenig Abgrenzung der Module, Wenig Debug-Unterstützung, Wenig Optimierung)
-		\item Lösung: Nachrüsten möglich (Typsystem: Typ-Annotation in Kommentaren dadurch besste Analyse), Optimierung(Compilation auf eine VM, Sprachoptimierung nach der Analyse (Compiler von Javascript nach Javascript), Debugging (Firebug, Browser Konsolen)))	
+		\item Lösung: Nachrüsten möglich 
+		\begin{itemize}
+			\item Typsystem: Typ-Annotation in Kommentaren dadurch bessere Analyse von Typsicherheit
+			\item Optimierung: \\
+			Sprachoptimierung nach der Analyse (Compiler von Javascript nach Javascript)\\
+			Compilation auf eine VM
+			\item Debugging: Firebug, Browser Konsolen (runtime) oder Closure Compiler (Compiletime)
+		\end{itemize}
+
 		\item Javascript als:
 		\begin{itemize}
 			\item imperative Sprache: Variablen, Einfaches Typsystem, Ablaufsemantik usw... aber keine sinnvolle Abgrenzung von imperativen Sprachen möglich da Variablen sind dynamisch getypt und anfänglich nicht kompiliert
@@ -970,12 +997,16 @@ auf mehreren Plattformen
 		\end{itemize}
 		\item jede Funktionsauswertung läuft in einem Kontext (this)
 		\item Globales Objekt = Window 
-		\item Erzeugtes Objekt = Konstruktor
+		\item Erzeugtes Objekt = Konstruktor\\
+		\textit{var dozent = new person (\glqq Gero\grqq);}
 		\item Gebundenes Objekt mit call und apply
+		\item In JavaScript gibt es keine Klassen. Es gibt jedoch Konstruktor-Funktionen (Konstruktoren) und prototypische Objekte.\\
+		\url{http://molily.de/js/organisation-instanzen.html}
 	\end{itemize}
 	\subsection{Scripting-Aspekte}
 	\begin{itemize}
 		\item Dynamische Erweiterung: Attribute werden dynamisch generiert
+		\item Es ist zulässig Variablen umzutypen
 		\item Bietet Möglichkeit, alle Instanzvariablen zu iterieren (for (fieldnName in object) \dots)
 	\end{itemize}
 	\subsection{Weitere Aspekte}
@@ -988,11 +1019,14 @@ auf mehreren Plattformen
 			\item Browser Object Model = Stark Plattform-spezifische API für den Browser (window, document)
 		\end{enumerate}
 		\item Server-Side Javascript: Interpretation und Verarbeitung von Javascript auf Seiten am Server
+		\item \textbf{V8} ist eine freie Implementierung der Scriptsprache ECMAScript (JavaScript) und soll die Ausführung von JavaScript-Code beschleunigen. Wird in C++ entwickelt und unterstützt Multicore.\\
+		V8 steigert die Leistung zur Laufzeit, indem der JavaScript-Code bei der Ausführung durch so genannte Just-in-time-Kompilierung zunächst in nativen Maschinencode übersetzt wird. Weitere Leistungsvorteile ergeben sich aus Optimierungstechniken wie dem Einsatz von Inline Caching, das JavaScript-Objekte versteckt um geteilte Klassen erweitert, und einer so genannten „exakten automatischen Speicherbereinigung“, die Speicher schnell und in kleinen Portionen zuweist und wieder freigibt, was hierbei längere Wartezeiten vermeidet.
+		
 		\item Weiter Entwicklungen:
 		\begin{itemize}
 			\item CoffeeScript = knappes Javascript, Postfix if Notation, Einrückungen (Python), Pattern Matching (Hasekll) $\rightarrow$ Compilation nach Javascript(Problem: erzeugter JS Code schwer lesbar und debugging aufwendig)
 			\item TypeScript = Javascript für die große Systementwicklung, statisch getypte Variablen, Typ-Prüfung zur Compilezeit, echte Klassen usw
-			\item Dart = Javascript in C und Java erweitert (bisschen wie TypeScript)ś
+			\item Dart = Javascript in C und Java erweitert (bisschen wie TypeScript)
 		\end{itemize}
 	\end{itemize}
 	\section{JSON}
@@ -1205,7 +1239,7 @@ auf mehreren Plattformen
 			\item appendChild: fügt einen Knoten an eine Liste von Kindern
 			\item removeChild: entfernt ein Kind
 			\item replaceChild: ersetzt ein Kind
-		\end{itemize}}
+		\end{itemize}
 		\item Vorteil: robuste API, flexibel, Standardisiert
 		\item Nachteil: hoher Funktionsaufwand für kleine Änderung, relativ langsam 
 		\item Probleme:
