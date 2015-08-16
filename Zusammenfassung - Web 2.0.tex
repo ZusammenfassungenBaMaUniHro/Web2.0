@@ -94,11 +94,11 @@
 		\begin{description}
 			\item [Upload Content:] Der Benutzer lädt den Inhalt einer Webseite hoch, Bsp: Youtube, Flickr
 			\item [Complete User Dominance:] Der Benutzer ist zentrales Element der Webseite, Bsp: Foren, Blogs, Wikis, Twitter
-			\item [Trust Themen:] ???
+			\item [Trust Themen:] Wie vertrauenswürdig ist der erstellte Content? 
 			\item [Kollaboration:] Die Benutzer arbeiten Zusammen, Bsp: Google Docs, Etherpad $\rightarrow$ Prosumers
 		\end{description}
 	\subsubsection{Anwendungen - Cooperation Portals}
-	Ein Unternehmen stellt ein ????. Mögliche Kategorisierung von Coopartion Portale:
+	 Mögliche Kategorisierung von Coopartion Portale:
 		\begin{description}
 			\item[Business Networks:] Plattform für den Austausch von unternehmesrelevanten Informationen, Bsp: XING; LinkedIn
 			\item[Interest Networks:] Plattform für den Austausch von Interessen der Benutzer, Bsp: Facebook, MySpace
@@ -577,7 +577,7 @@ auf mehreren Plattformen
 			\begin{itemize}
 			\item Ist Bitcoin anonym?
 			\begin{itemize}
-				\item ???
+				\item Ja, da es keine zentrale Zuordnung zwischen Private-Key und Person existiert. Kommunikation basiert nur auf Public-Keys. Jeder Benutzer ist in der Lage sein eigenes Key-Paar zu erstellen.
 			\end{itemize}
 			\item Ist Bitcoin sicher? Ja wenn:
 			\begin{itemize}
@@ -768,7 +768,7 @@ auf mehreren Plattformen
 	\end{itemize}
 	\subsubsection{Durchbrechen der Same Origin Sandbox}
 	\begin{itemize}
-		\item Durchbrechen durch Cross Site Zugriffe (???)
+		\item Durchbrechen durch Cross Site Zugriffe (Durchbruch durch die Sandbox)
 		\begin{itemize} 
 			\item Möglich durch: Javascript, CSS, Requests
 			\item Wenig Problem da Vermeidung durch geeigneten Webseiten Entwurf
@@ -783,9 +783,9 @@ auf mehreren Plattformen
 		\item Durchbrechen durch Protokoll-Erweiterung
 		\begin{itemize}
 			\item CORS = Cross Origin resource Sharing (W3C Standard)
-			\item Web Messaging(HTML5)
-			\item JsonRequest (???)
-			\item JSONP (????)
+			\item Web Messaging = HTML 5 Technik für die Kommunikation zwischen Seiten
+			\item JsonRequest = Kommunikation durch Query in JSON Format mit JSON Antwort vom Server
+			\item JSONP = Kommunikationstechnik in Javascript um Daten von anderen Domain anzufordern
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{CORS - Cross Origin Resource Sharing}
@@ -930,11 +930,11 @@ auf mehreren Plattformen
 	\end{itemize}
 	\subsubsection{Covert Channel}
 	\begin{itemize}
-		\item ???
+		\item ein parasitärer Kommunikationskanal, welcher Bandbreite (Informationskapazität) eines legitimierten Kommunikationskanals benutzt, um Informationen zu übermitteln.
+		\item Alle verdeckten Kanäle benötigen Bandbreite eines legitimierten Kommunikationskanals. Dadurch verringern sie entweder die Bandbreite des legitimierten Kanals oder laden ihm ohne Verringerung der Bandbreite weitere Informationen auf. Der verdeckte Kanal versteckt sich geschickt im legitimierten Kanal und ist somit schwer bis gar nicht zu entdecken.
+		\item Speicherkanal (Storage channel) – Kommunikation über gespeicherte Daten.
+		\item Zeitkanal (Timing channel) – Informationen werden über zeitliche Abfolgen informationstechnischer Verarbeitungen übertragen.
 	\end{itemize}
-	
-	
-	
 	\section{Einführung in Javascript}
 	\subsection{Allgemein}
 	\begin{itemize}
@@ -1062,12 +1062,8 @@ auf mehreren Plattformen
 			\item keine same-origin Restriktion
 			\item Effekt: Sicherer und flexibler; Kein Schaden, da nur Daten übertragen; Keine Restriktion
 		\end{itemize}
-		
 	\end{itemize}
-	
-	
-	
-	\section{Javascript Pattern}
+\section{Javascript Pattern}
 	\subsection{Scope Pattern}
 		\textit{$\rightarrow$ äußerer Scope}\\
 		function name() \{\\
@@ -1103,7 +1099,6 @@ auf mehreren Plattformen
 			\item Description: it is about having private methods, which you also expose as public methods
 			\item Ähnlich wie das Exportieren im Module Pattern nur ohne return sondern durch Zuweisung im Körper (zu einer vorher definierten Variable im äußeren Scope)
 		\end{itemize}
-		
 		\subsection{Anti-Pattern: Implizites Typecasting}
 		\begin{itemize}
 			\item Erscheint nicht im Quelltext
@@ -1145,7 +1140,21 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 			\item Gestattet sehr kompakte, übersichtliche Programme und wird sehr oft in jQuery benutzt.
 		\end{itemize}
 		\subsection{Hinzufügen von Funktionalität}
-		???????
+		\begin{itemize}
+			\item Anwendung des Chaining Pattern
+			\item Erlaubt eine andere Weise Methoden für ein Objekt festzulegen 
+			\begin{lstlisting}
+if (typeof Function.prototype.method !== "function") {
+	Function.prototype.method = function (name, implementation) {
+	this.prototype[name] = implementation;
+	return this;};
+}
+var Person = function (name) {this.name = name;}.
+	method('getName', function () {return this.name;}).
+	method('setName', function (name) {this.name = name;return this;
+});
+			\end{lstlisting}
+		\end{itemize}
 		\subsection{Browser-Weiche bei Initialisierung}
 		\begin{itemize}
 			\item Um eine Browser-Kompatibilität zu gewährleisten
@@ -1261,7 +1270,31 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 	\begin{itemize}
 		\item Netzwerke mit Power Law Verhalten werden von 2 – 3 Big Players monopolisiert
 		\item Folge: die Masse wird nicht gesehen und geht in der Bedeutungslosigkeit unter (Beispiel: Youtube)
-		\item ????
+		\item Modell des Long Tail
+		\begin{itemize}
+			\item Was ist besser? Sehr selten viel verdienen (forderer Teil der Kurve) oder sehr oft wenig zu verdienen (hinterer Teil der Kurve)
+			\item These von Anderson: Sell more of less (Konzentriere Dich auf den Long Tail, da das Integral darüber sehr viele individuelle Nischen enthält)
+			\item These von Pareto: 80\% des Effekts in 20\% der Produkte (Konzentriere Dich auf den Big Peak, nur da steckt die Masse drin) 
+			\item Aktueller Stand: Pareto gilt (Emprisch belegt: Verkaufskurven steilen sich zunehmend noch auf
+			Erziele 90\% des Verkauserfolgs mit 10\% der Produkte)
+		\end{itemize}
+		\item Annahme: Netzwerk besteht aus Knoten (Sites, Blogs, Artikel) und Kanten (Links); Netz wächst mit neuen Knoten und neuen Kanten; ein hoher Wert ergibt sich durch gute Verlinkung (Folge: hoher Google Page-Rank)
+		\item Modell von Erdös und Renyi = Knoten werden zufällig ausgewählt – kann Power Law nicht erzeugen
+		\item Modell von Barabasi und Albert = Preferential Attachment Modell (Wer hat dem wird gegeben d.h. neue Knoten verbinden sich zufällig mit ausgewähltem alten Knoten); Wahrscheinlichkeit fürs Verbindne steigt linear mit der Sichtbarkeit des alten Knotens $\rightarrow$ erzeugt Power Law Netzwerke
+		\item Erhöhung der Sichtbarkeit:
+		\begin{itemize}
+			\item Technologie: Maximale automatische Verlinkung (Wikis, Blogs)
+			\item Inhalt: Maximale aufreißerische Inhalte
+			\item Prozeß: Maximale Interaktivität (Kommentare, Feedback)
+		\end{itemize}
+		\item es gilt also: Zeichnet sich bereits ein Monopolist ab, so ist Konkurrenz zwecklos
+		\item Folgen und Probleme:
+		\begin{itemize}
+			\item Folge: Erzeugt hype-driven Content niederen Anspruchs im Boulevard-Stil für den Massenmarkt
+			\item Folge der Folge: führt zu Monopolposition
+			\item wer sich nicht an die Regeln hält bleibt unsichtbar, wer Regeln beachtet wird sichtbar (bzgl. hype-driven Content niederen Anspruchs im Boulevard-Stil)
+			\item ABER: Statistische Modelle kennen keine Medienethik
+		\end{itemize}
 	\end{itemize}
 	\section{DOM und DOM-API}
 	\subsection{Allgemein}
