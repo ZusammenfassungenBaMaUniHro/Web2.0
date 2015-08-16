@@ -1159,18 +1159,18 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 	
 	
 	\section{Smallworld und Powerlaw Netzwerke}
-	\subsection{Grundgedanke}
 	\begin{itemize}
 		\item Ausgangsexperiment: Paket soll an eine Person geschickt werden, ausgehend von einer ausgewählten Person die nur den Name und der Region kannte des Empfängerns
 		\item Vorgehen: Senden an eine Person von der man glaubt dass diese die Zielperson kennt
 		\item Ergebnis: Manche Pakete erreichten ihr Ziel nicht aber wenn ein Paket sein Ziel erreichte,
 		dann im Schnitt mit weniger als 6 Zwischenschritten
-		\item Analogie: Routing im Internet
+		\item Analogie: Routing im Internet\\
+		(üblich: 20 und mehr Schritte Abstand)
 		\item Ziel: Modellierung dieser Verhältnisse
 	\end{itemize}
 	\subsection{Erdös Netze}
 	\begin{itemize}
-		\item Erdös sehr aktiver Mathematik
+		\item Erdös sehr aktiver Mathematik (und Graphentheoretiker)
 		\item Erdöszahl:
 		\begin{itemize}
 			\item 0 = Erdös selber
@@ -1179,25 +1179,26 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 			\item usw...
 			\item Nicht jeder Mathematiker hat eine Erdös Zahl
 		\end{itemize}
-		\item Durchschnittliche Erdös-Zahl ist kleiner als 5
-	\end{itemize}
-	\subsubsection{Persone-Netze)}
-	\begin{itemize}
-		\item Bsp: Xing, LinkedIn
-		\item Es gibt viele Leute, welche noch keine Kontakte eingetragen haben
-		\item Sobald es einen bestätigten Kontakt gibt, existiert mit großer Wahrscheinlichkeit ein Pfad zu dieser Person über andere Personen
-		\item Bezeichung: Small World Phänomen
+		\item Durchschnittliche Erdös-Zahl (über alle Mathematiker) ist kleiner als 5
+		\item Persone-Netze
+		\begin{itemize}
+			\item Bsp: Xing, LinkedIn
+			\item Es gibt viele Leute, welche noch keine Kontakte eingetragen haben
+			\item Sobald es einen bestätigten Kontakt gibt, existiert mit großer Wahrscheinlichkeit ein Pfad zu dieser Person über andere Personen
+			\item Bezeichung: Small World Phänomen
+		\end{itemize}
 	\end{itemize}
 	\subsection{Systematische Charakterisierung von Small World}
 	\begin{itemize}
 		\item Problem = Unscharfe Definition (Wo beginnt Small World denn genau?)
 		\item Grundidee: Die Welt sieht \glqq klein\grqq aus
+		\item ungünstige Graphen haben zu viele/wenige Kanten
 		\item Idee:
 		\begin{itemize}
 			\item Welt soll potentiell groß sein 
 			\item Sie ist aber zu meiner Überraschung doch recht klein weil ich bei der Bewegung immer mal wieder auf Bekannte von Bekannten stoße
 		\end{itemize}
-		\item Erstes Kriterium: Sinnvolle Gesamtsituation
+		\item \textbf{Erstes Kriterium}: Sinnvolle Gesamtsituation
 		\begin{itemize}
 			\item Knotenzahl viel größer als Kantenanzahl pro Knoten
 			\item Kantenanzahl pro Knoten viel größer log(Knotenanzahl)
@@ -1207,7 +1208,7 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 			\item Frage: Welcher Anteil der möglichen Verbindungen der Nachbarn untereinander ist tatsächlch im Graphen realisiert?
 			\item Nahe bei 1: Die Nachbarn eines kennen sich gut untereinander (B)
 			\item Nahe bei 0: Die Nachbarn eines Knotens sind einander meist fremd (A)
-			\item \glqq Wenn A den B kennt und A den C kennt, dann ist die Wahrscheinlichkeit hoch dass auch B und C miteinander zu tun haben
+			\item \textbf{Interpretation des hohen Clusterkoeffizienten}: \glqq Wenn A den B kennt und A den C kennt, dann ist die Wahrscheinlichkeit hoch dass auch B und C miteinander zu tun haben
 			\begin{center}
 				\includegraphics[scale=3]{img/cluster_koeffizient.jpg}
 			\end{center}
@@ -1216,22 +1217,42 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 		\begin{itemize}
 			\item Beschreibt die minimale Länge eines Weges zwischen zwei Knoten, gemittelt über alle verbundenen Knotenpaaren
 		\end{itemize}
-		\item Small World Charakterisierung
+		\item Randomisieren eines regulären k-Rings
 		\begin{itemize}
-			\item Hoher Clusterkoeffizient: Gute,lokale Vernetzung
-			\item geringe Pfadlänge: Hinreichend viele globale Brücken
-			\item 6 degrees of separation-Eigenschaft: mit rein lokalem Wissen alleine eine gute,kurze Route finde
+			\item Regulärer k-Ring
+			\begin{itemize}
+				\item Nachbarn kennen sich untereinander sehr gut (regulär !)
+				\item Mittlere Pfadlänge ist hoch (keine Fernverbindung)
+			\end{itemize}
+			\item Small World
+			\begin{itemize}
+				\item Nachbarn kennen sich untereinander sehr gut (noch gut lokal verankert)
+				\item Mittlere Pfadlänge ist klein (da einige, aber wichtige Fernverbindungen)
+			\end{itemize}
+			\item Random 
+			\begin{itemize}
+				\item Nachbarn kennen sich untereinander sehr schlecht (Großstadtchaos)
+				\item Mittlere Pfadlänge ist klein (da viele Fernverbindungen)
+			\end{itemize}
 		\end{itemize}
+		\item \textbf{Zweites Kriterium}: Geringe Pfadlänge $\rightarrow$ Hinreichend viele globale Brücken
+		\item \textbf{Small World Charakterisierung}
+		\begin{itemize}
+			\item Hoher Clusterkoeffizient: Gute, lokale Vernetzung
+			\item geringe Pfadlänge: Hinreichend viele globale Brücken
+			\item 6 degrees of separation-Eigenschaft: mit rein lokalem Wissen alleine eine gute, kurze Route finde
+		\end{itemize}
+		\item Ursachen für small world: Austauschstudenten, Gastprofessoren, Sommerurlaub\\
+		$\rightarrow$ Randomisieren eines regulären k-Rings entspricht menschlicher Gesellschaft
 	\end{itemize}
 	\subsection{3 wichtige Netzklassen}
-	\subsubsection{Allgemein}
 	\begin{itemize}
 		\item Idee zur Generierung: Initialer Graph durch Wachstumprozess werden neue Knoten und Kanten erzeugt, basierend auf einem Zufallsprozess
 		\item 3 wichtige Graphklassen
 		\begin{itemize}
-			\item Erdös und Renyi (Gleichverteilung)
-			\item Watts und Strogatz (Decaying Long Distance)
-			\item Barabasi und Albert (Preferential Attachment)
+			\item Erdös und Renyi (Gleichverteilung - Resultat: \glqq langweilig\grqq)
+			\item Watts und Strogatz (Abnehmende Fernverbindungen - Resultat: Small World)
+			\item Barabasi und Albert (Preferential Attachment - Resultat: Power Law)
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{Erdös und Renyi}
@@ -1241,22 +1262,50 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 		\begin{itemize}
 			\item Zufälliger Graph: Unter allen möglichen Graphen mit n Knoten und e Kanten wähle einen zufällig auf Basis einer Gleichverteilung aus
 			\item Zufällige Kante: Graph mit n Knoten, für jede Kante zwischen zwei Knoten wird mit der Wahrscheinlichkeit p realisiert
+			\item Die zwei Konstruktions-Varianten unterscheiden sich \glqq nicht wesentlich\grqq
 		\end{itemize}
 		\item Verteilung der Knotengrade: Binomial-Verteilung
 		\item Cluster Koeffizient: Recht klein
 		\item Typische Entfernung: Abhängig von den Parametern
+		\item Bewertung: unrealistisch, da nicht small world, zu kleiner Cluster Koeffizient für soziale Netze und keine Power Law Verteilung in Knotengraden
 	\end{itemize}
+	
 	\subsubsection{Watts und Strogatz}
 	\begin{itemize}
 		\item Idee: Lokal regulärer Graph mit Fernverbindungen, Wahrscheinlichkeit der Fernverbindungen sinkt mit deren Länge 
 		\item Lokale Konnektivität: jeder Knoten hat Kontakt zu allen Nachbarn der Schachbrettentfernung p
-		\item Long Range Konnektivität: Jeder Knoten hat zu weiteren q Knoten Kontakt, Wahrscheinlichkeit ist dabei invers proportional zur Entfernug (Wahrscheinlichkeit = $\frac{1}{d^{r}}$)
+		\item Long Range Konnektivität: 
+		\begin{itemize}
+			\item Jeder Knoten hat zu weiteren q Knoten Kontakt
+			\item Je weiter weg – umso unwahrscheinlicher
+			\item Wahrscheinlichkeit ist dabei invers proportional zur Entfernug (Wahrscheinlichkeit = $\frac{1}{d^{r}}$)
+			\item das Ziel ist es mit dem Parameter \textbf{r} die Größe des Clusters anzugeben
+			\item Bei 2-dimensionalem Graph wäre r = 2 am besten, wobei r bestimmt die "Wanderaktivität" im Graphen
+		\end{itemize}						 
 	\end{itemize}
+	
 	\subsubsection{Albert und Barabasi}
 	\begin{itemize}
-		\item Idee: Preferential Attachment (Netz mit n Knoten, jeder neue Knoten verbindet sich zufällig mit alten Knoten, Wahrscheinlichkeit ist proportional zur Zahl der Kanten, die ein alter Knoten bereits hat)
+		\item Idee: Preferential Attachment (Netz beginnt mit n Knoten, jeder neue Knoten verbindet sich zufällig mit alten Knoten, Wahrscheinlichkeit ist proportional zur Zahl der Kanten, die ein alter Knoten bereits hat)
 		\item ALSO: Wer schon viele Verbindungen hat, kriegt noch besonders viele weitere (Monopole)
+		\item \textbf{Konsequenz}: Knotengrad hat Powerlaw-Verteilung
 	\end{itemize}
+	
+	
+		\subsection{Das Power-Law}
+	\begin{itemize}
+		\item Die Potenzgesetze der Mathematik gehören zu den Skalengesetzen und beschreiben die Skaleninvarianz vieler natürlicher Phänomene.
+		\item Ob eine gegebene Verteilung durch eine Potenzfunktion angenähert werden kann, zeigt sich bei einer doppelt-logarithmischen Auftragung. Ist der Graph der Funktion eine Gerade, so ist eine Näherung durch eine Potenzfunktion möglich. Die Steigung der Gerade ist dann ihr Exponent.
+		\item Zipfsche Gesetz Verallgemeinert: Das \textbf{k}-häufigste Wort tritt $\frac{1}{k^{s}}$ so oft auf wie das häufigste
+		\item Empirische Beobachtung: 80 – 20 Regel\\
+		80\% der Einkommens in Italien werden von den 20\% Reichsten erzielt
+		\item Scale Free Laws - Gesetzmäßigkeit: Verdoppelung der Filegröße reduziert Häufigkeit um Faktor vier 
+		
+	\end{itemize}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/power.png}
+	\end{center}
+	
 	\subsection{Anwendungen im Web 2.0}
 	\begin{itemize}
 		\item Netzwerke mit Power Law Verhalten werden von 2 – 3 Big Players monopolisiert
@@ -1613,7 +1662,7 @@ var MYAPP = MYAPP || {}; 	// haeufig angetroffene Kurzform
 		\end{itemize}
 		\item Gruppierende Elemente
 		\begin{itemize}
-			\item details = Zusatzinformation, die User nach Wunsch ein‐ und ausblenden kann
+			\item details = Zusatzinformation, die User nach Wunsch ein- und ausblenden kann
 			\item figure = Gruppierungselement, das auch außerhalb des normalen Flows dargestellt werden darf (wie in Latex floats)
 			\item figurecaption = Teil von Figure; Bildbeschreibung
 		\end{itemize}
