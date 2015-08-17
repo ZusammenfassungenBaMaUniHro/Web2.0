@@ -1325,7 +1325,7 @@ var Person = function (name) {this.name = name;}.
 			\item These von Anderson: Sell more of less (Konzentriere Dich auf den Long Tail, da das Integral darüber sehr viele individuelle Nischen enthält)
 			\item These von Pareto: 80\% des Effekts in 20\% der Produkte (Konzentriere Dich auf den Big Peak, nur da steckt die Masse drin) 
 			\item Aktueller Stand: Pareto gilt (Emprisch belegt: Verkaufskurven steilen sich zunehmend noch auf
-			Erziele 90\% des Verkauserfolgs mit 10\% der Produkte)
+			Erziele 90\% des Verkauserfolgs mit 10\% der Produkte)\\		$\rightarrow$ Amazon(Alles!) vs. Thalia (Top 50 + Nachbestellen)
 		\end{itemize}
 		\item Annahme: Netzwerk besteht aus Knoten (Sites, Blogs, Artikel) und Kanten (Links); Netz wächst mit neuen Knoten und neuen Kanten; ein hoher Wert ergibt sich durch gute Verlinkung (Folge: hoher Google Page-Rank)
 		\item Modell von \textbf{Erdös und Renyi} = Knoten werden zufällig ausgewählt – kann Power Law nicht erzeugen
@@ -1346,7 +1346,6 @@ var Person = function (name) {this.name = name;}.
 		\end{itemize}
 	\end{itemize}
 	\section{DOM und DOM-API}
-	\subsection{Allgemein}
 	\begin{itemize}
 		\item Ziel: Veränderung des Dokumentes (Manipulation des Inhaltes oder Darstellung)
 		\item Möglichkeiten:
@@ -1357,7 +1356,7 @@ var Person = function (name) {this.name = name;}.
 			\item Multipart Mime Type: Mehrteilige Dokumente versenden und damit Inhalte updaten
 			\item DOM-API: Direkte Manipulation der (semi)standardisierten OO-Darstellung des Dokuments
 		\end{itemize}
-		\item Initiatoren:
+		\item Initiatoren (Push/Pull):
 		\begin{itemize}
 			\item Server Side: Server will das sich der Inhalt ändert (Multipart Mime Type, Slow Load, Polling)
 			\item Client Side: Durch Interaktion mit der Oberfläche wird Inhalt geändert (Meta Tag Refresh, XHR Request, Javascript URL Wechsel (onload Handler))
@@ -1414,11 +1413,33 @@ var Person = function (name) {this.name = name;}.
 	\subsection{Multipart Mime Type}
 	\begin{itemize}
 		\item MIME Type: Angabe des Dateityps in verschiedenen Internet Protokollen
-		\item ???
+		\item Syntax: \textit{Content-Type: multipart/mixed; boundary=separatorstring}\\
+		(separatorstring taucht außer zur Trennung der Teile nicht auf)
+		\item Beispiel:
+		\begin{lstlisting}
+MIME-Version: 1.0
+Content-type: multipart/mixed; boundary=23xx1211
+CRLF
+--23xx1211
+Content-type: text/html
+CRLF
+Erster Teil (HTML Daten)
+--23xx1211
+Content-type: audio/aiff
+CRLF
+Zweiter Teil (Audio Daten)
+--23xx1211--
+		\end{lstlisting}
+		\item Arten:
+		\begin{itemize}
+			\item Multipart/x-mixed-replace (ankommende Teil ersetzt den angezeigten Inhalt)
+			\item Multipart/form-data (Für komplexes Upload bei POST bei Forms; Jedes Element des Forms wird als separater Teil einer Multipart Nachricht codiert; Server erhält aber nur eine einzige Nachricht)
+			\item Multipart/related (Bspw. Mail mit Inline-Bildern)
+		\end{itemize}
 	\end{itemize}
 	\subsection{DOM Api}
 	\begin{itemize}
-		\item DOM enthält Dokumententteile in OO Baumstruktur
+		\item DOM enthält Dokumententteile in OO Baumstruktur (einsehbar: Firebug, Chrome, Dom Inspector)
 		\item DOM-Api erlaubt diese OO Sicht zu modifizieren (Finden,Löschen,Erzeugen,Append,Preprend,Inhalt modizizieren, Attribute modifizieren)
 		\item Zugriff aus Javascript
 		\item Wichtige Funktionen:
@@ -1469,13 +1490,14 @@ var Person = function (name) {this.name = name;}.
 		\item Angabe im HTML-Dokument dass das Dokument regelmäßig neu geladen wird
 		\item Erweiterung um redirect
 	\end{itemize}
+	
+	
 \section{Serverseitige Performance}
-	\subsection{Allgemein}
 	\begin{itemize}
 		\item Probleme:
 		\begin{itemize}
 			\item Webserver mit 10k und mehr Connections pro Sekunde
-			\item Problem wird schwerer durch W2.0 stärker fragmentiertes Web (Mehr Ressourcen (Bilder, CSS, JS), mehr Kanäle (Websockets),häufigere Interaktion (Responsive Web))
+			\item Problem wird schwerer durch W2.0 stärker fragmentiertes Web (Mehr Ressourcen (Bilder, CSS, JS), mehr Kanäle (Websockets), häufigere Interaktion (Responsive Web))
 		\end{itemize}
 		\item Lösungen: Effizientere Nutzung der Protokolle
 		\begin{itemize}
@@ -1488,7 +1510,8 @@ var Person = function (name) {this.name = name;}.
 			\item Rohe Komprimierung: zip auf den Inhalten
 			\item Smarte Komprimierung: BSON (Effizienten Encoding von JSON), ProtoBuf (BSON von Google)
 			\item Websockets: Socket für http-Requests (weniger header overhead)
-			\item SPDY und HTTP 2.0: neue Header für Steuerung
+			\item SPDY und HTTP 2.0: neue Header für Steuerung\\
+			(Weiterentwicklung und Verbesserung des http Protokolls durch Google)
 		\end{itemize}
 	\end{itemize}
 	\subsection{SPDY und HTTP 2.0}
@@ -1501,17 +1524,18 @@ var Person = function (name) {this.name = name;}.
 			\item Weitgehende Rückwärtskompatibilität
 			\item Nahtloses, dynamisches Upgrading
 		\end{itemize}
-		\item Multiplexing: alle Requests über eine TCP Verbindung (dadruch nur einmaliges 3way Handshaking Aufwand)
-		\item Server Pushing: Server sendet Ressource, ohne das Client schon requestet hatte
+		\item Multiplexing: alle Requests über eine TCP Verbindung\\ (dadruch nur einmaliges 3way Handshaking Aufwand - Syn, SynAck, Ack)
+		\item Server Pushing: Server sendet Ressource, ohne dass Client schon requestet hatte
 		\item Server Hinting: Server informiert Client das best. Ressource nötig sein wird; Client überpüft ob im Cache wenn nicht dann Request
 	\end{itemize}
-	\subsection{Ressourcen Zuteilung}
+	\subsection{Ressourcen Vergabe}
 	\begin{itemize}
 		\item ???
 	\end{itemize}
 	\subsection{Node.js}
 	\begin{itemize}
-		\item I/O Framework für Serverside Javascript
+	\item Grundsätzlich: Server-Side Javascript ermöglicht Interpretation und Verarbeitung von Seiten am Server
+		\item I/O Framework für Serverside Javascript(V8-Basis, Nutzt event based programming und epoll)
 		\item Vorteil: sehr kompakte Server, sehr leistungsfähig bei hohen Connection, Reduziert Anzahl Technologiebrüche in Web Anwendungen (nur eine Sprache für Client und Server)
 	\end{itemize}
 \section{Privatheit}
