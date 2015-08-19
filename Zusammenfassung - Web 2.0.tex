@@ -1876,10 +1876,12 @@ Roman)
 	
 \section{Ruby on Rails}
 	\begin{itemize}
+		\item Rapid Prototyping $\rightarrow$ ERM-Modell $\rightarrow$ Ruby regelt
 		\item Rails: Application Framework for web development (Hauptziel: Agiles Programmieren)
 		\item Agile Programmierung: Kontinuierlicher Strom von Ergebnissen; Regelmäßige Anpassung an sich ändernde Anforderungen; Das einzige Maß des Fortschritts ist funktionierende Software; Ergebnis-getrieben – nicht Planungs-getrieben; Enge Zusammenarbeit mit dem Kunden
 		\item Server: Ruby, nutzt Javascript Snippets
-		\item Ruby: funktionale interpretierte Sprache ähnlich zu Python (Duck Typing, Garbage Collection, Objekt-orientiert)
+		\item Ruby: funktionale, interpretierte Sprache ähnlich zu Python (Duck Typing, Garbage Collection, Objekt-orientiert)
+		\item Ducktyping: Wenn ein Objekt watschelt, ist es eine Ente
 		\item Aufbau nach MVC Paddern
 		\begin{itemize}
 			\item Model(M): Speichert den Status
@@ -1897,8 +1899,9 @@ Roman)
 		\item Udate: Aus der Action wird das View generiert (Action abc hat View mit namen abc.rhtml)
 		\item Naming: Aus dem Klassen-Namen die Klassen-Definition erhalten (Klasse Abc ist in Datei xyz.rb definiert)
 	\end{itemize}
+	
+	
 \section{Clientseitige Performance}
-	\subsection{Allgemein}
 	\begin{itemize}
 		\item Früher: Javascript Performance egal da Script nur für kleine Aufgabe, Webseite nur solange aktiv wie die Lesedauer war
 		\item Heute: Javascript Performance sehr wichtig da komplette Anwendungen in JS, höhere Verweildauern der User, höhere Anzahl an Transaktionen, Erwartungshaltung des Users ist eine andere
@@ -1943,7 +1946,7 @@ Roman)
 	\end{itemize}
 	\subsubsection{Expression Minization}
 	\begin{itemize}
-		\item Problem: Berechnung von Shared Subexpressions ist unnötige Aufwand
+		\item Problem: Berechnung von Shared Subexpressions ist unnötiger Aufwand
 		\item Code: var a = (b+c)*(b+c)+3*(b+c)
 		\item Besser: einmalige Berechnung von shard subexpressions (aus dem Beispiel: a+b)m dadurch nur einmalige Berechnung
 		\item Lösung: var x = b+c; var a = x*x+3*x;
