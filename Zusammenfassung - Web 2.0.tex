@@ -44,6 +44,7 @@
 	\begin{itemize}
 		\item Charackterisierung möglich durch aus Wahl verschiedener Waaben als Baublöcke
 		\item Hauptwaabe = Hauptaufgabe, Nebenwaaben = Zusätzliche Möglichkeiten
+		\item  beschreibt, inwiefern sich Internetanwendungen durch das Ausmaß unterscheiden, in dem sie sich auf einige von sieben Social-Media-Bausteinen(Identität, Gespräche, Austausch, Präsenz, Beziehungen, Reputation und Gruppen) konzentrieren.
 	\end{itemize}
 	\subsubsection{SLATES}
 	\glqq SLATES is an initialism that describes the business impacting capabilities, derived from the effective use of Web 2.0 technologies in and across enterprises.\grqq (Wikipedia), Jedes Element beschreibt eine zentrale Komponente von Enterprise 2.0
@@ -177,7 +178,6 @@
 	\subsection{First Player und Impulse}
 	\begin{itemize}
 		\item Es wird früh eine Entscheidung gefällt, sodass sich spätere und bessere Lösungen nicht mehr durchsetzen können. Aufkaufen der Konkurrenz sichert die eigene Existenz
-		\item typischer Second-Mover: Microsoft
 		\item Google Suggest: Interactive GUI
 		\item Writely $\rightarrow$ Google Docs
 		\item Google Maps und Gmail
@@ -244,21 +244,20 @@
 			
 						
 	\section{XMLHttpRequest}
-	\subsection{Allgemein}
 	\begin{itemize}
 		\item XMLHttpRequest ist ein JS Objekt, REQUEST öffnet HTTP Verbindung, RESPONSE verwaltet die Antwort
 		\item Allgemeines Vorgehen:
 		\begin{enumerate}
 			\item Neues XMLHttpRequest-Objekt erstellen
 			\item Request spezifizieren: TYP(GET,POST,PUT,DELETE,\dots),URL (ggf. mit Query Encoding), Boolean Asyc (True für Asynchrone Kommunikation, False für Synchrone Kommunikation)
-			\item Setzen des Event Handlers (eine Funktion), welche Ausgeführt wird wenn Antwort vom Server kommt
+			\item Setzen des Event Handlers (eine Funktion), welcher ausgeführt wird, wenn Antwort vom Server kommt
 			\item Senden des Request ggf. mit Body (bei POST leer)
 		\end{enumerate}
 		\item GET ist relativ unsicher(leicht einsehbar, gilt nicht bei XHR), ggf. Problem mit Firewalls (Empfohlen wenn wenig Daten im Query)
 		\item POSTS werden nicht gecached und nervige Browsermeldung(nicht bei XHR) (Empfohlen bei vielen Daten im Query)
 		\item Synchron (nicht Ajax): sinnvoll wenn die Interaktion des Users zu verhinden (Bsp.: online Banking)
 		\item Asynchron: Programieraufwand (Timeout, Fehlerfall, Mehrfach-Requests, Anzeige an die User über laufenden Ladevorgang)
-		\item Umgang mit Fehlerfällen: Defensiv Programmieren: überall entsprechende Exception Handler vorsehen, Viel Logging, Davon ausgehen,d ass alles irgendwann mal irgendwie schief läuft
+		\item Umgang mit Fehlerfällen: Defensiv Programmieren: überall entsprechende Exception Handler vorsehen, Viel Logging, Davon ausgehen, dass alles irgendwann mal irgendwie schief läuft
 	\end{itemize}
 			
 	
@@ -272,7 +271,7 @@
 			\item \textbf{Wert}: Linear zur Netzwerk-Größe (n)
 			\item \textbf{Bsp}: Radio-Sender
 			\item \textbf{Wettbewerb}: Friedvolle Koexistenz, Größe $\rightarrow$ Fitness
-			\item \textbf{Zusammenschluss}: Größe $m^2$ und Größe $n^2$ ergibt sich n + m
+			\item \textbf{Zusammenschluss}: ??? %Größe $m^2$ und Größe $n^2$ ergibt sich n + m
 			\item Best Content
 		\end{itemize}
 		\item Metacalfe \textbf{Transaction is King}
@@ -282,7 +281,7 @@
 			\item \textbf{Wert}: $n^2$ genauer: n*(n-1)/2
 			\item \textbf{Bsp}: Telefon, E-Mail
 			\item \textbf{Wettbewerb}: Survival of the Fittest (Darwin)
-			\item \textbf{Zusammenschluss}: Größe m und Größe n ergibt sich $n^2 + m^2 + 2nm$
+			\item \textbf{Zusammenschluss}: ??? %Größe m und Größe n ergibt sich $n^2 + m^2 + 2nm$
 			\item Most Members
 		\end{itemize}
 		\item Reed \textbf{Cooperation is King}
@@ -292,18 +291,18 @@
 			\item \textbf{Wert}: Exponentiell: $2^n$
 			\item \textbf{Bsp}: Google +, Blogs, Wikis, Usenet, Facebook
 			\item \textbf{Wettbewerb}: Theoretisch: One choice for ever (Eigen)
-			\item \textbf{Zusammenschluss}: Größe $2^m$ und Größe $2^n$ ergibt sich $2^m * 2^n$
+			\item \textbf{Zusammenschluss}: ???% Größe $2^m$ und Größe $2^n$ ergibt sich $2^m * 2^n$
 			\item Best Facilitation
 		\end{itemize}
 	\end{enumerate}
 	\begin{itemize}
 		\item Benutzer-initiierte Interessensgruppen fördern
-		\item Maximales initiales Investment (sichert "one choice for ever" aber maximales Risiko)
+		\item Maximales initiales Investment (sichert \glqq one choice for ever\grqq aber maximales Risiko)
 	\end{itemize}
 	\subsection{Effekte und Strategien}
 	\begin{itemize}
 		\item Nutzen für den einzelnen Teilnehmer verändert sich
-abhängig von der Zahl Teilnehmer am Gesamtsystem
+abhängig von der Zahl an Teilnehmern am Gesamtsystem
 		\begin{description}
 			\item[Positiv:] Je mehr Teilnehmer desto mehr Leute kann man ansprechen
 			\item[Negativ:] Je mehr Teilnehmer desto mehr Aufwand beim Filtern von Spam
@@ -324,6 +323,10 @@ Preis/Leistungsverhältnis verbessern
 	\end{itemize}
 	\subsection{Zweiseitige Märkte}
 		\begin{itemize}
+		\item Das wesentliche Merkmal zweiseitiger Märkte sind gegenseitige, indirekte Netzwerkeffekte. Auf zweiseitigen Märkten treffen (mindestens) zwei unterscheidbare Gruppen von Akteuren aufeinander, deren Nutzen an der Plattform steigt, wenn die jeweils andere Gruppe auf der Plattform größer wird.
+		
+Nehmen wir das Beispiel von eben noch einmal auf: Betriebssysteme wie Windows sind zweiseitige Märkte. Warum: Weil, wie eben beschrieben, die Attraktivität des Betriebssystems für den Endnutzer (Gruppe A) steigt, wenn viele Programme dafür zur Verfügung stehen. Gleichzeitig steigt die Attraktivät des Betriebssystems für die Entwickler (Gruppe B), wenn es von sehr vielen Endnutzern (Gruppe A) und damit potentiellen Kunden eingesetzt wird.\\
+\url{http://www.neunetz.com/2010/04/02/zweiseitige-maerkte-die-grundlagen/}
 			\item Märkte, die zwei/mehrere unterschiedliche Teilnehmergruppen zusammenführen
 			\item \glqq \textbf{Henne-Ei-Problem}\grqq
 			\begin{itemize}
@@ -357,8 +360,8 @@ Netzwerk-Effekte mehr Nutzen als ein kleineres, besseres System)
 				\end{itemize}
 			\item \textbf{Second Mover Strategien}
 				\begin{itemize}
-					\item typischer Weise: Microsoft (plötzlich gibt es etwas und Microsoft taucht auf)
-					\item keine hohen Initialkosten
+					\item Typischer Weise: Microsoft (plötzlich gibt es etwas und Microsoft taucht auf)
+					\item Keine hohen Initialkosten
 					\item Nutzt ausgereifte Konzepte
 					\item Risiko: kann nicht mehr schnell genug in den Markt wachsen
 				\end{itemize}
@@ -376,13 +379,13 @@ Netzwerk-Effekte mehr Nutzen als ein kleineres, besseres System)
 				\begin{itemize}
 					\item Crowd-Sourcing der Reifungs-Kosten: Community development
 					\item Crowd-Sourcing der Wartungs-Kosten: Community bug fixes
-					\item Gefahr: Übernahme des Projekt durch andere, Nachahmung
+					\item Gefahr: Übernahme des Projekts durch andere \& Nachahmung
 				\end{itemize}
 				\item Plug In Architekturen\\
 				(Konzept-Weiterentwicklung ohne die Grundidee zu kompromittieren)
 				\item Virales Copyright (Jeder darf weiterentwickeln)
 				\begin{itemize}
-					\item klassisch: Derivate unterstehen derselben Lizenz
+					\item Klassisch: Derivate unterstehen derselben Lizenz
 					\item Dual Licensing: Kommerzielle Nutzung der Derivate Dritter erfordert Lizenz
 				\end{itemize}
 			\end{itemize}
@@ -396,7 +399,7 @@ Netzwerk-Effekte mehr Nutzen als ein kleineres, besseres System)
 				\end{itemize}
 				\item User LockIn
 				\begin{itemize}
-					\item Benutzer kennt meine \textbf{GUI} + \textbf{Konzepte} $\rightarrow$ Will nicht wechseln da gewohnt + erlernt
+					\item Benutzer kennt meine \textbf{GUI} \& \textbf{Konzepte} $\rightarrow$ Will nicht wechseln da gewohnt \& erlernt
 					\item \textbf{Investment}: Benutzer hat Zeit in mein System investiert Upload von Profil + Inhalt, \\
 					personalisiert, Akzeptieren von Freundschaften, Bewerten von Objekten, Erreichen von Status
 				\end{itemize}
@@ -409,19 +412,22 @@ Netzwerk-Effekte mehr Nutzen als ein kleineres, besseres System)
 			\end{itemize}
 			\item Zielgruppe
 			\begin{itemize}
-				\item \textbf{Early Adopters} kennen letzten Schrei + müssen ihn haben\\
-				(Darf + soll technisch, kompliziert + beta-Stadium sein und formen durch Feedback das Produkt weiter $\rightarrow$ Bsp: Linux)
+				\item \textbf{Early Adopters} kennen den letzten Schrei \& müssen ihn haben\\
+				(Darf \& soll technisch, kompliziert \& Beta-Stadium sein und formen durch Feedback das Produkt weiter $\rightarrow$ Bsp: Linux)
 				\item \textbf{Followers} folgen den Bewegungen der Masse\\
 (Darf nicht den Touch des Technologischen haben; Übernehmen Produkt wie es ist;\\
-hohe Erwartung + Stabilität; Muss ausgereifte, standardisierte GUI + Konzepte haben \\
+hohe Erwartung an Stabilität; muss ausgereifte, standardisierte GUI \& Konzepte haben \\
 $\rightarrow$ Bsp: Microsoft)
 				\item \textbf{Kombination} oft versucht, nicht immer möglich (Bsp: Apple + Google)
 			\end{itemize}
 			\item Multihoming
 			\begin{itemize}
-				\item Mitglieder einer Gruppe eines mehrseitigen Markts
-auf mehreren Plattformen
-				\item Effekt: Erhöhung von Barrieren für Konkurrenten
+				\item Mitglieder einer Gruppe eines mehrseitigen Markts auf mehreren Plattformen
+				\item Mitglieder einer Gruppe findet man also auf mehr als einer Plattform wieder. Das erlaubt der anderen Gruppe einen größeren Spielraum bei der Wahl der jeweiligen Plattform.
+				\item Bspw. Softwareentwickler, der für Windows und Mac entwickelt \& Geschäft, das mehrere Kreditkarten akzeptiert
+				\item Multihoming wird notwendig, wenn konkurrierende Plattformen inkompatibel sind, aber Nutzen aus ihnen gezogen werden kann. Sofern mehrere konkurrierende Plattformen auf dem Markt sind, ist es nicht ungewöhnlich, dass mindestens eine Seite Multihoming betreibt.
+
+\url{http://www.neunetz.com/2010/04/08/wie-multihoming-zweiseitige-maerkte-beeinflusst/}
 			\end{itemize}
 		\end{itemize}
 	\subsection{Entwicklung am Beispiel der Browser Wars}
@@ -2157,4 +2163,5 @@ Roman)
 			\item Keygeneration
 		\end{itemize}
 \section{Leaking}
+\section{Mash-Netzwerke}
 \end{document}
