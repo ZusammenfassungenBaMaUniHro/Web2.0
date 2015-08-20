@@ -471,7 +471,6 @@ $\rightarrow$ Bsp: Microsoft)
 		
 		
 	\section{Bitcoin}
-	\subsection{Allgemein}
 	\begin{itemize}
 		\item \glqq Geld ist ein \textbf{Recht} zur Ausführung einer bestimmten Transaktion das von seinem \textbf{Träger} \textbf{genau einmal ausgeübt} werden kann und \textbf{nur durch} die Ausübung auf \textbf{andere übergeht}.\grqq
 		\item Geld als Wertmaßstab, Tauschmittel und Wertaufbewahrung
@@ -486,9 +485,9 @@ $\rightarrow$ Bsp: Microsoft)
 		\end{itemize}
 		\item \glqq Genau einmal ... von seinem Träger \grqq
 		\begin{itemize}
-			\item Geld kann nicht mehrfach Ausgegeben
+			\item Geld kann nicht mehrfach ausgegeben werden
 			\item Weitergabe möglich
-			\item Backup möglich
+			\item Backup nicht möglich
 		\end{itemize}
 		\item \glqq Nur durch\grqq
 		\begin{itemize}
@@ -499,7 +498,7 @@ $\rightarrow$ Bsp: Microsoft)
 		\end{itemize}
 		\item \glqq auf andere übergeht\grqq
 		\begin{itemize}
-			\item einer verliert,einer bekommt das recht
+			\item einer verliert, einer bekommt das Recht
 		\end{itemize}
 		\item Wie entsteht der \glqq Wert\grqq des Geldes
 		\begin{itemize}
@@ -512,21 +511,21 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Träger des Geldes
 		\begin{itemize}
 			\item Bindung an Pseudonym (Bitcoin Adresse)
-			\item Nachweis der Befugnis durch Key Paar
-			\item Bitcoin Adresse ist hash des public key
-			\item Private Key verlieren ist Geld verlieren
-			\item Identität durch Key Paar Generierung (256 Bit)
+			\item Nachweis der Befugnis durch Schlüssel Paar
+			\item Bitcoin Adresse ist Hashwert des public keys
+			\item Private Key verlieren ist gleichbedeutend mit Geld verlieren
+			\item Identität durch Schlüssel Paar Generierung (256 Bit)
 		\end{itemize}
 		\item Übertragung
 		\begin{itemize}
 			\item Peer-to-Peer
-			\item jeder Teilnehmer betreibt Bitcoin Knoten
-			\item jeder Knoten speichert Konto-Stände aller Adressen
-			\item Transaktion an alle Knoten gesandt
-			\item Berechtigugn wird durch Signatur überprüft
-			\item neue Konto-Stände werden an alle Knoten gesandt
+			\item Jeder Teilnehmer betreibt Bitcoin Knoten
+			\item Jeder Knoten speichert Konto-Stände aller Adressen
+			\item Transaktionen werden an alle Knoten gesandt
+			\item Berechtigung wird durch Signatur überprüft
+			\item Neue Kontostände werden an alle Knoten gesandt
 		\end{itemize}
-		\item Problem: Inkonsistente Konto-Stände (einige Knoten sind noch nicht über neue Kontostände informiert)
+		\item Problem: Inkonsistente Kontostände (einige Knoten sind noch nicht über neue Kontostände informiert)
 		\item Lösung: Bitcoin Blockketten-Algorithmus
 		\item Wichtigste Aspekte von Bitcoin (hypeunabhänig)
 			\begin{itemize}
@@ -583,14 +582,16 @@ $\rightarrow$ Bsp: Microsoft)
 			\begin{itemize}
 			\item Ist Bitcoin anonym?
 			\begin{itemize}
-				\item Ja, da es keine zentrale Zuordnung zwischen Private-Key und Person existiert. Kommunikation basiert nur auf Public-Keys. Jeder Benutzer ist in der Lage sein eigenes Key-Paar zu erstellen.
+				\item Jein
+				\item keine zentrale Zuordnung zwischen Schlüssel-Paar und Person 
+				\item Jede Transaktion ist öffentlich für jeden einsehbar
 			\end{itemize}
 			\item Ist Bitcoin sicher? Ja wenn:
 			\begin{itemize}
 				\item ECC, SHA-256 und RIPEMD sicher ist
 				\item Der private Key sicher gespeichert wird
 			\end{itemize}
-			\item Contra
+			\item Contra (Warum sollte man Bitcoin verbieten)
 				\begin{itemize}
 				 \item Bezahlung illegaler Transaktionen (Silk Road)
 				 \item Erpressung (Steuererklärung von Mitt Romney)
@@ -617,7 +618,7 @@ $\rightarrow$ Bsp: Microsoft)
 				\item Detektieren wer gelogen hat, da zwei übereinstimmen $\rightarrow$ $O(n^2)$
 				\item Bezug zu Bitcoin: Die Mehrheit hält sich an die Regeln
 			\end{itemize}
-			\item Mehrheit der Bitcoin-Knoten unter der Kontrolle haben
+			\item Mehrheit der Bitcoin-Knoten unter Kontrolle haben
 			\begin{itemize}
 				\item Es geht auch mit weniger Knoten, dann aber komplizierter
 				\item neuen Pfad generieren und auf diesen konzentrieren
@@ -650,7 +651,7 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Bitcoin-Datenbank speichert nicht die Werte einzelner Konten, sondern viel eher die Transaktionen der Bitcoins
 		\item Teilnehmer durch Bitcoin-Adresse oder Pseudonym repräsentiert. 
 		Diese(s) entspricht einem öffentlichen Schlüssel (eines privat-public-Key-Paares).
-		Das bedeutet, dass so eine Adresse ohne zentrale Instanz selbst generiert werden kann, jedoch auch, dass eine (unwahrscheinliche, da $2^256$ Adressen) Kollisionsmöglichkeit besteht.
+		Das bedeutet, dass so eine Adresse ohne zentrale Instanz selbst generiert werden kann, jedoch auch, dass eine (unwahrscheinliche, da $2^{256}$ Adressen) Kollisionsmöglichkeit besteht.
 		Achtung: Im Skript handelt es sich bei der Bitcoin Adresse um den Hash des Schlüssels!
 		\item Das Guthaben eines Teilnehmers setzt sich zusammen aus den vergangenen, noch nicht als ungültig (besseres Wort?) erklärten Transaktionen, für die der Teilnehmer eine Berechtigung (in Form eines private Key) hat.
 		Beispiel: Alice hat Bob 10 BTC überwiesen, Carol hat Bob 15 BTC überwiesen.
@@ -682,7 +683,7 @@ $\rightarrow$ Bsp: Microsoft)
 		Alle Knoten arbeiten an eigenen, unterschiedlichen Blöcken (da diese verschiedene Transaktionen enthalten können).
 		\item Finden zwei Knoten (in etwa) gleichzeitig einen Proof zu ihrem Block, werden beide Blöcke an die Blockchain angehängt, es entsteht eine Verzweigung.
 		Nachfolgende Blöcke sollen immer an die längste Kette angehängt werden.
-		Achtung: Gemeint ist nicht die Anzahl der Blöcke, sondern die schwierigste Kette, also jene, welche die meisten "Anfangsnullen" enthält.
+		Achtung: Gemeint ist nicht die Anzahl der Blöcke, sondern die schwierigste Kette, also jene, welche die meisten \glqq Anfangsnullen\grqq enthält.
 	\end{itemize}
 	\subsubsection{The money supply}
 	\subsubsection{The security of transaction block chains}
@@ -690,7 +691,6 @@ $\rightarrow$ Bsp: Microsoft)
 	
 	
 	\section{Ajax und Web 2.0 Sicherheit}
-	\subsection{Allgemein}
 	\begin{itemize}
 		\item Motive der Angreifer
 		\begin{itemize}
@@ -766,10 +766,10 @@ $\rightarrow$ Bsp: Microsoft)
 			\item Remote Ressourcen: kein Zugriff fremde Domänen
 		\end{itemize}
 		\item Problem: ISP-Anomalität (www.myisp.com/dave/script1.js und www.myisp.com/john/script1.js können aufeinander zugreifen), document.domain Property (www.bsp.com und wiki.bsp.com können nicht interagieren $\rightarrow$ document.domain = \glqq bsp.com\grqq)
-		\item XHR, localStorage und Web Messaging unter liegen Same Origin Restriktion
-		\item Bilder, CSS und Skripte unterliegen \textbf{nicht} Same Origin Restriktion $\rightarrow$ dadurch Attacken möglich: Web Spoofing, GUI Redressing, Seiteübernehmen
+		\item XHR, localStorage und Web Messaging unterliegen Same Origin Restriktion
+		\item Bilder, CSS und Skripte unterliegen \textbf{nicht} Same Origin Restriktion $\rightarrow$ dadurch Attacken möglich: Web Spoofing, GUI Redressing, Seitenübernahme
 		\item Websockets haben eigene Sicherheitsschicht
-		\item Cooklies unterliegen browserseitigen Einstellungen
+		\item Cookies unterliegen browserseitigen Einstellungen
 		\item Flash Cookies unterliegen browser- und Flash-Einstellungen
 	\end{itemize}
 	\subsubsection{Durchbrechen der Same Origin Sandbox}
@@ -777,14 +777,13 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Durchbrechen durch Cross Site Zugriffe (Durchbruch durch die Sandbox)
 		\begin{itemize} 
 			\item Möglich durch: Javascript, CSS, Requests
-			\item Wenig Problem da Vermeidung durch geeigneten Webseiten Entwurf
+			\item Geringes Problem da es durch geeigneten Webseiten Entwurf vermieden werden kann
 		\end{itemize}
-		\item Durchbrechen durch Entscheid des Browser-Herstellers
+		\item Durchbrechen kann durch Browser-Hersteller ermöglicht werden
 		\begin{itemize}
 			\item Explorer: Durch OS Einstellungen, ActiveX/Flash Komponenten
 			\item Firefox: Durch signed code, Plugins, Flash Komponenten
-			\item Sollte man nicht nutzen, da plattformabhängig, öfters unsicher implementiert und
-			oft geändert, unterschiedliche Mitwirkung des end-users erforderlich
+			\item Sollte man nicht nutzen, da plattformabhängig, öfters unsicher implementiert und oft geändert, unterschiedliche Mitwirkung des End-Users erforderlich
 		\end{itemize}
 		\item Durchbrechen durch Protokoll-Erweiterung
 		\begin{itemize}
@@ -796,9 +795,9 @@ $\rightarrow$ Bsp: Microsoft)
 	\end{itemize}
 	\subsubsection{CORS - Cross Origin Resource Sharing}
 	\begin{itemize}
-		\item ermöglich kontrolliertes Durchbrechen der Same Origin Sandbox durch Beteiligung des Servers
-		\item erlaubt XHR auf andere Domäne 
-		\item Nutzt ggf. Preflighting (HTTP OPTIONS Request) d.h. holt sicher Erlaubnis des Servers zur Abweichung vom üblichen Verhalten
+		\item Ermöglich kontrolliertes Durchbrechen der Same Origin Sandbox durch Beteiligung des Servers
+		\item Erlaubt XHR auf andere Domäne 
+		\item Nutzt ggf. Preflighting (HTTP OPTIONS Request) d.h. holt sich die Erlaubnis des Servers, um vom üblichen Verhalten abzuweichen
 		\item Preflighting wenn Methode nicht GET oder POST, Request body hat MIME Type != text/plain oder spezielle Header hinzugefügt
 		\item Ablauf:
 		\begin{enumerate}
