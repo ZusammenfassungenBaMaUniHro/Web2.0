@@ -911,19 +911,19 @@ $\rightarrow$ Bsp: Microsoft)
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{Social Engineering}
-	Social Engineering bedeutet den Mißbrauch von Gruppen-spezifischen Verhaltensweisen um den Benutzer zu einer Handlung zu bewegen die er unter Kenntnis der damit verbundenen Folgen so nicht setzen würde
+	Social Engineering bedeutet den Missbrauch von gruppenspezifischen Verhaltensweisen um den Benutzer zu einer Handlung zu bewegen die er unter Kenntnis der damit verbundenen Folgen so nicht setzen würde
 	\subsection{Fehlen von Trusted IO}
 	\subsubsection{GUI Redressing Attacke}
 	\begin{itemize}
-		\item Attacke welche durch eine versteckte Veränderung der Oberfläche erfolgt 
-		\item Möglichkeiten: Cursordatei manipulier
-		\item Clickjacking: Stehle Mausklick des Users (Angreifer spiegelt ihm vor, dass er auf eine andere Stelle klickt)
+		\item Attacke, welche durch eine versteckte Veränderung der Oberfläche erfolgt 
+		\item Möglichkeiten: Cursordatei manipuliert
+		\item Clickjacking: Stehle Mausklick des Users (Angreifer spielt ihm vor, dass er auf eine andere Stelle klickt)
 		\item Strokejacking: Stehle den Tastendruck des Users (Browser sieht andere Taste als jene die der User gedrückt hat)
 	\end{itemize}
 	\subsubsection{Web Spoofing Attacke}
 	\begin{itemize}
 		\item Benutzer ist auf anderem Server als er glaubt
-		\item Ziel: User vorzuschleiern auf einer anderen Seite zu sein als er eigentlich ist (User denkt er ist auf bank.de, hat aber mafia.de aufgerufen)
+		\item Ziel: User vorzuschleiern auf einer anderen Seite zu sein als er tatsächlich ist (User denkt er ist auf bank.de, hat aber mafia.de aufgerufen)
 	\end{itemize}
 	\subsubsection{Injection Attacken}
 	\begin{itemize}
@@ -964,10 +964,10 @@ $\rightarrow$ Bsp: Microsoft)
 			\item Langsam etwas effizienter (Hotspot, V8, asm.js)
 			\item Am Browser: Sicherer als Java \& ActiveX 
 		\end{itemize}
-		\item Javascript ist: imperativ, objekt-prientiert, funktional, scripting Sprache (nicht funktional im Sinne von Haskell und Co, nicht oo wie C++ oder Java)
-		\item Programmierer kann eigenen Programmierstiel wählen d.h. wenig Zwang der Sprache 
+		\item Javascript ist: imperativ, objekt-orientiert, funktional, scripting Sprache (nicht funktional im Sinne von Haskell und Co, nicht oo wie C++ oder Java)
+		\item Programmierer kann eigenen Programmierstil wählen d.h. wenig Zwang der Sprache 
 		\item Nutzung als universelles Target, da sehr weit verbreitet (Jeder Browser kann Javascript)
-		\item Problem: Javascript bietet wenig Garantien (keine Typsicherheit, wenig Abgrenzung der Module, Wenig Debug-Unterstützung, Wenig Optimierung)
+		\item Problem: JavaScript bietet wenig Garantien (keine Typsicherheit, wenig Abgrenzung der Module, Wenig Debug-Unterstützung, Wenig Optimierung)
 		\item Lösung: Nachrüsten möglich 
 		\begin{itemize}
 			\item Typsystem: Typ-Annotation in Kommentaren dadurch bessere Analyse von Typsicherheit
@@ -1023,7 +1023,7 @@ $\rightarrow$ Bsp: Microsoft)
 	\end{itemize}
 	\subsection{Weitere Aspekte}
 	\begin{itemize}
-		\item Javascript Typen: schwach getypte Sprache (typeof prüft grundlegende Typen (primitiv oder Objekt), instanceof prüft auf Klasse eines Objetes) d.h. Variablen nicht getypt
+		\item Javascript Typen: schwach getypte Sprache (\textbf{typeof} prüft grundlegende Typen |primitiv oder Objekt| \textbf{instanceof} prüft auf Klasse eines Objektes) d.h. Variablen nicht getypt
 		\item 3 Bestandteile von Javascript
 		\begin{enumerate}
 			\item ECMAScript = standarditisierte Sprachkern von Javascript (wesentliche Eigenschaften werden dort implemenziert)
