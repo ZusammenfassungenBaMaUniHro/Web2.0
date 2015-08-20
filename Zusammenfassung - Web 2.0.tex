@@ -721,7 +721,7 @@ $\rightarrow$ Bsp: Microsoft)
 	
 	\subsection{Sicherheitsmodelle für mobilen Code}
 	\begin{itemize}
-		\item Problem: Mobiler Code = Ausführebare Datei, die vom Server geladen wird
+		\item Problem: Mobiler Code = Ausführbare Datei, die vom Server geladen wird
 		\item Problem: Die Unterscheidung von Daten und Code ist schwer bis unmöglich
 		\item Lösungen: Sandbox, Signierter Code, Policy Files
 	\end{itemize}
@@ -787,7 +787,7 @@ $\rightarrow$ Bsp: Microsoft)
 		\end{itemize}
 		\item Durchbrechen durch Protokoll-Erweiterung
 		\begin{itemize}
-			\item CORS = Cross Origin resource Sharing (W3C Standard)
+			\item CORS = Cross Origin Resource Sharing (W3C Standard)
 			\item Web Messaging = HTML 5 Technik für die Kommunikation zwischen Seiten
 			\item JsonRequest = Kommunikation durch Query in JSON Format mit JSON Antwort vom Server
 			\item JSONP = Kommunikationstechnik in Javascript um Daten von anderen Domain anzufordern
@@ -819,8 +819,8 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Senden: targetWindow.postMessage(message,targetURL)
 		\item targetWindow = Referenz auf Zielfenster (Erhalt durch Öffnen des Fenster $\rightarrow$ return-Wert von window.open(); enthalten als contentWindow Property eines iframes)
 		\item message = String oder Object das gesendet wird
-		\item targetUrl = URL des Zielfensters
-		\item Empfänger implementiert onmessage-Handler $\rightarrow$ erhält ein Event mit den Attributen data (Inhalt der Nachricht), origin (URL des Senders), source (Referenz auf das Sender-Fenster)
+		\item targetURL = URL des Zielfensters
+		\item Empfänger implementiert onmessage-Handler $\rightarrow$ erhält ein Event mit den Attributen \textbf{data} (Inhalt der Nachricht), \textbf{origin} (URL des Senders) und \textbf{source} (Referenz auf das Sender-Fenster)
 		\item Sicherheit
 		\begin{itemize}
 			\item Sender: Kann vertrauliche Daten an böses Ziel senden 
@@ -2163,5 +2163,5 @@ Roman)
 			\item Keygeneration
 		\end{itemize}
 \section{Leaking}
-\section{Mash-Netzwerke}
+\section{Mesh-Netzwerke}
 \end{document}
