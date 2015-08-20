@@ -253,8 +253,8 @@
 			\item Setzen des Event Handlers (eine Funktion), welcher ausgeführt wird, wenn Antwort vom Server kommt
 			\item Senden des Request ggf. mit Body (bei POST leer)
 		\end{enumerate}
-		\item GET ist relativ unsicher(leicht einsehbar, gilt nicht bei XHR), ggf. Problem mit Firewalls (Empfohlen wenn wenig Daten im Query)
-		\item POSTS werden nicht gecached und nervige Browsermeldung(nicht bei XHR) (Empfohlen bei vielen Daten im Query)
+		\item GET ist relativ unsicher (leicht einsehbar, gilt nicht bei XHR), ggf. Problem mit Firewalls (Empfohlen wenn wenig Daten im Query)
+		\item POSTS werden nicht gecached und nervige Browsermeldung (nicht bei XHR) (Empfohlen bei vielen Daten im Query)
 		\item Synchron (nicht Ajax): sinnvoll wenn die Interaktion des Users zu verhinden (Bsp.: online Banking)
 		\item Asynchron: Programieraufwand (Timeout, Fehlerfall, Mehrfach-Requests, Anzeige an die User über laufenden Ladevorgang)
 		\item Umgang mit Fehlerfällen: Defensiv Programmieren: überall entsprechende Exception Handler vorsehen, Viel Logging, Davon ausgehen, dass alles irgendwann mal irgendwie schief läuft
@@ -271,17 +271,17 @@
 			\item \textbf{Wert}: Linear zur Netzwerk-Größe (n)
 			\item \textbf{Bsp}: Radio-Sender
 			\item \textbf{Wettbewerb}: Friedvolle Koexistenz, Größe $\rightarrow$ Fitness
-			\item \textbf{Zusammenschluss}: ??? %Größe $m^2$ und Größe $n^2$ ergibt sich n + m
+			\item \textbf{Zusammenschluss}: Werte der Netze addieren sich bei Zusammenschluss ($n + m$)
 			\item Best Content
 		\end{itemize}
-		\item Metacalfe \textbf{Transaction is King}
+		\item Metcalfe \textbf{Transaction is King}
 		\begin{itemize}
 			\item \textbf{Nutzen}: Anzahl Verbindungen
 			\item \textbf{Entscheidung}: welchen Peer kontaktiere ich?
 			\item \textbf{Wert}: $n^2$ genauer: n*(n-1)/2
 			\item \textbf{Bsp}: Telefon, E-Mail
 			\item \textbf{Wettbewerb}: Survival of the Fittest (Darwin)
-			\item \textbf{Zusammenschluss}: ??? %Größe m und Größe n ergibt sich $n^2 + m^2 + 2nm$
+			\item \textbf{Zusammenschluss}: Der Wert ist mehr als die Addition der Werte der Ausgangsnetze ($n^2 + m^2 + 2nm$)
 			\item Most Members
 		\end{itemize}
 		\item Reed \textbf{Cooperation is King}
@@ -291,13 +291,13 @@
 			\item \textbf{Wert}: Exponentiell: $2^n$
 			\item \textbf{Bsp}: Google +, Blogs, Wikis, Usenet, Facebook
 			\item \textbf{Wettbewerb}: Theoretisch: One choice for ever (Eigen)
-			\item \textbf{Zusammenschluss}: ???% Größe $2^m$ und Größe $2^n$ ergibt sich $2^m * 2^n$
+			\item \textbf{Zusammenschluss}: Die Werte multiplizieren sich.
 			\item Best Facilitation
 		\end{itemize}
 	\end{enumerate}
 	\begin{itemize}
-		\item Benutzer-initiierte Interessensgruppen fördern
-		\item Maximales initiales Investment (sichert \glqq one choice for ever\grqq aber maximales Risiko)
+		\item Benutzer-initiierte Interessengruppen fördern
+		\item Maximales initiales Investment (sichert \glqq one choice for ever\grqq, aber maximales Risiko)
 	\end{itemize}
 	\subsection{Effekte und Strategien}
 	\begin{itemize}
