@@ -1179,8 +1179,8 @@ var Person = function (name) {this.name = name;}.
 	
 	\section{Smallworld und Powerlaw Netzwerke}
 	\begin{itemize}
-		\item Ausgangsexperiment: Paket soll an eine Person geschickt werden, ausgehend von einer ausgewählten Person die nur den Name und der Region kannte des Empfängerns
-		\item Vorgehen: Senden an eine Person von der man glaubt dass diese die Zielperson kennt
+		\item Ausgangsexperiment: Paket soll an eine Person geschickt werden, ausgehend von einer ausgewählten Person die nur den Name und die Region des Empfängers kannte 
+		\item Vorgehen: Das Packet an eine Person senden, von der man glaubt, dass diese die Zielperson kennt
 		\item Ergebnis: Manche Pakete erreichten ihr Ziel nicht, aber wenn ein Paket sein Ziel erreichte,
 		dann im Schnitt mit weniger als 6 Zwischenschritten
 		\item Analogie: Routing im Internet\\
@@ -1189,7 +1189,7 @@ var Person = function (name) {this.name = name;}.
 	\end{itemize}
 	\subsection{Erdös Netze}
 	\begin{itemize}
-		\item Erdös sehr aktiver Mathematik (und Graphentheoretiker)
+		\item Erdös: sehr aktiver Mathematik (und Graphentheoretiker)
 		\item Erdöszahl:
 		\begin{itemize}
 			\item 0 = Erdös selber
@@ -1215,7 +1215,7 @@ var Person = function (name) {this.name = name;}.
 		\item Idee:
 		\begin{itemize}
 			\item Welt soll potentiell groß sein 
-			\item Sie ist aber zu meiner Überraschung doch recht klein weil ich bei der Bewegung immer mal wieder auf Bekannte von Bekannten stoße
+			\item Sie ist aber zu meiner Überraschung doch recht klein, weil ich bei der Bewegung immer mal wieder auf Bekannte von Bekannten stoße
 		\end{itemize}
 		\item \textbf{Erstes Kriterium}: Sinnvolle Gesamtsituation
 		\begin{itemize}
@@ -1240,7 +1240,7 @@ var Person = function (name) {this.name = name;}.
 		\begin{itemize}
 			\item Regulärer k-Ring
 			\begin{itemize}
-				\item Nachbarn kennen sich untereinander sehr gut (regulär !)
+				\item Nachbarn kennen sich untereinander sehr gut (regulär!)
 				\item Mittlere Pfadlänge ist hoch (keine Fernverbindung)
 			\end{itemize}
 			\item Small World
@@ -1259,7 +1259,7 @@ var Person = function (name) {this.name = name;}.
 		\begin{itemize}
 			\item Hoher Clusterkoeffizient: Gute, lokale Vernetzung
 			\item geringe Pfadlänge: Hinreichend viele globale Brücken
-			\item 6 degrees of separation-Eigenschaft: mit rein lokalem Wissen alleine eine gute, kurze Route finde
+			\item 6 degrees of separation-Eigenschaft: mit rein lokalem Wissen alleine eine gute, kurze Route finden
 		\end{itemize}
 		\item Ursachen für small world: Austauschstudenten, Gastprofessoren, Sommerurlaub\\
 		$\rightarrow$ Randomisieren eines regulären k-Rings entspricht menschlicher Gesellschaft
@@ -1316,9 +1316,9 @@ var Person = function (name) {this.name = name;}.
 	\begin{itemize}
 		\item Die Potenzgesetze der Mathematik gehören zu den Skalengesetzen und beschreiben die Skaleninvarianz vieler natürlicher Phänomene.
 		\item Ob eine gegebene Verteilung durch eine Potenzfunktion angenähert werden kann, zeigt sich bei einer doppelt-logarithmischen Auftragung. Ist der Graph der Funktion eine Gerade, so ist eine Näherung durch eine Potenzfunktion möglich. Die Steigung der Gerade ist dann ihr Exponent.
-		\item Zipfsche Gesetz Verallgemeinert: Das \textbf{k}-häufigste Wort tritt $\frac{1}{k^{s}}$ so oft auf wie das häufigste
+		\item Zipfsche Gesetz verallgemeinert: Das \textbf{k}-häufigste Wort tritt $\frac{1}{k^{s}}$ so oft auf wie das häufigste
 		\item Empirische Beobachtung: 80 – 20 Regel\\
-		80\% der Einkommens in Italien werden von den 20\% Reichsten erzielt
+		80\% des Einkommens in Italien wird von den Reichsten 20\% erzielt
 		\item Scale Free Laws - Gesetzmäßigkeit: Verdoppelung der Filegröße reduziert Häufigkeit um Faktor vier 
 		
 	\end{itemize}
@@ -1333,19 +1333,19 @@ var Person = function (name) {this.name = name;}.
 		\item Modell des Long Tail
 		\begin{itemize}
 			\item Was ist besser? Sehr selten viel verdienen (forderer Teil der Kurve) oder sehr oft wenig zu verdienen (hinterer Teil der Kurve)
-			\item These von Anderson: Sell more of less (Konzentriere Dich auf den Long Tail, da das Integral darüber sehr viele individuelle Nischen enthält)
-			\item These von Pareto: 80\% des Effekts in 20\% der Produkte (Konzentriere Dich auf den Big Peak, nur da steckt die Masse drin) 
+			\item These von \textbf{Anderson}: Sell more of less (Konzentriere Dich auf den Long Tail, da das Integral darüber sehr viele individuelle Nischen enthält)
+			\item These von \textbf{Pareto}: 80\% des Effekts in 20\% der Produkte (Konzentriere Dich auf den Big Peak, nur da steckt die Masse drin) 
 			\item Aktueller Stand: Pareto gilt (Emprisch belegt: Verkaufskurven steilen sich zunehmend noch auf
 			Erziele 90\% des Verkauserfolgs mit 10\% der Produkte)\\		$\rightarrow$ Amazon(Alles!) vs. Thalia (Top 50 + Nachbestellen)
 		\end{itemize}
-		\item Annahme: Netzwerk besteht aus Knoten (Sites, Blogs, Artikel) und Kanten (Links); Netz wächst mit neuen Knoten und neuen Kanten; ein hoher Wert ergibt sich durch gute Verlinkung (Folge: hoher Google Page-Rank)
+		\item Annahme: Netzwerk besteht aus Knoten (Sites, Blogs, Artikeln) und Kanten (Links); Netz wächst mit neuen Knoten und neuen Kanten; ein hoher Wert ergibt sich durch gute Verlinkung (Folge: hoher Google Page-Rank)
 		\item Modell von \textbf{Erdös und Renyi} = Knoten werden zufällig ausgewählt – kann Power Law nicht erzeugen
-		\item Modell von \textbf{Barabasi und Albert} = Preferential Attachment Modell (Wer hat dem wird gegeben d.h. neue Knoten verbinden sich zufällig mit ausgewähltem alten Knoten); Wahrscheinlichkeit fürs Verbindne steigt linear mit der Sichtbarkeit des alten Knotens $\rightarrow$ erzeugt Power Law Netzwerke
+		\item Modell von \textbf{Barabasi und Albert} = Preferential Attachment Modell (Wer hat, dem wird gegeben d.h. neue Knoten verbinden sich zufällig mit einem ausgewähltem alten Knoten); Wahrscheinlichkeit fürs Verbinden steigt linear mit der Sichtbarkeit des alten Knotens $\rightarrow$ erzeugt Power Law Netzwerke
 		\item Erhöhung der Sichtbarkeit:
 		\begin{itemize}
 			\item Technologie: Maximale automatische Verlinkung (Wikis, Blogs)
 			\item Inhalt: Maximale aufreißerische Inhalte
-			\item Prozeß: Maximale Interaktivität (Kommentare, Feedback)
+			\item Prozess: Maximale Interaktivität (Kommentare, Feedback)
 		\end{itemize}
 		\item es gilt also: \textbf{Zeichnet sich bereits ein Monopolist ab, so ist Konkurrenz zwecklos}
 		\item Folgen und Probleme:
@@ -1369,7 +1369,7 @@ var Person = function (name) {this.name = name;}.
 		\end{itemize}
 		\item Initiatoren (Push/Pull):
 		\begin{itemize}
-			\item Server Side: Server will das sich der Inhalt ändert (Multipart Mime Type, Slow Load, Polling)
+			\item Server Side: Server will, dass sich der Inhalt ändert (Multipart Mime Type, Slow Load, Polling)
 			\item Client Side: Durch Interaktion mit der Oberfläche wird Inhalt geändert (Meta Tag Refresh, XHR Request, JavaScript URL Wechsel (onload Handler))
 		\end{itemize}
 	\end{itemize}
@@ -1378,8 +1378,8 @@ var Person = function (name) {this.name = name;}.
 		\item HTMLElemente besitzen das Attribut innerHTML
 		\item Lesen: Zeigt im Attribut enthaltenen HTML Text an
 		\item Schreiben: Ins Attribut geschriebener Text wird als HTML geparst
-		\item Beispiel: $<$div id=\grqq bsp\grqq$>$Etwas Text$<$/div$>$ (lesen)$\rightarrow$document.getElementById(\glqq bsp\glqq ).innerHTML = \glqq Nun $<$b$>$fetter$<$/b$>$
-		Text\glqq 
+		\item Beispiel: $<$div id=\grqq bsp\grqq$>$Etwas Text$<$/div$>$ (lesen)\\
+		$\rightarrow$document.getElementById(\glqq bsp\grqq ).innerHTML = \glqq Nun $<$b$>$fetter$<$/b$>$ Text\grqq 
 		\item outerHTML: Enthält noch den Text des umschließenden Tags
 		\item innerText: Text ohne Tags
 		\item outerTags: wie innerTags aber ersetzt das komplette Element beim Überschreiben
@@ -1394,13 +1394,13 @@ var Person = function (name) {this.name = name;}.
 		\item Style Modifikation:
 		\begin{itemize}
 			\item erlaubt berechneten Style
-			\item so Abhängigkeit von client-side Kontext möglich (Resize, Fenstergröße)
+			\item Abhängigkeit von clientseiteigen Kontext möglich (Resize, Fenstergröße)
 		\end{itemize}
 		\item visibility und display Attribute:
 		\begin{itemize}
-			\item visibility: Element unsichtbar machen ABER Element bleibt an seinem Platz im Layout
-			\item display: Element unsichtbar machen ABER Element wird aus dem Platz im Layout entfernt
-			\item position: Absolute Positionierung oder relative Positionierung (bezgl. vorangehendem Element)
+			\item \textit{visibility}: Element unsichtbar machen ABER Element bleibt an seinem Platz im Layout
+			\item \textit{display}: Element unsichtbar machen ABER Element wird aus dem Platz im Layout entfernt
+			\item \textit{position}: Absolute Positionierung oder relative Positionierung (bezgl. vorangehendem Element)
 		\end{itemize}
 		\item Problem: AJAX GUI ist oft dynamisch (Problem: Latenzzeit) $\rightarrow$ Lösung: Schaltbare GUI
 		\item Schaltbare GUI: Alle Elemente einer GUI mit der HTML-Seite übertragen und bei User-Interaktion einfach zwischen den einzelnen Sichten umschalten $\rightarrow$ Realisierung durch visibility/display Attribute, z-Order Techniken oder Frame-Techniken
@@ -1415,8 +1415,8 @@ var Person = function (name) {this.name = name;}.
 		\item writeln(): schreibt Zeile in das Dokument
 		\item Anwendung:
 		\begin{itemize}
-			\item Reines write: Ergänzt das Dokument (aber nur innerhalb des Dokuments, das gerade geparsed wird dh. innerhalb vn eingebetteten script-Tags)
-			\item open-write-close Zyklus: schreibt in ein anderes Fenster aus einem fremden Dokument heraus (close nötig da sonst Browser das Dokument nicht lädt)
+			\item Reines write: Ergänzt das Dokument (aber nur innerhalb des Dokuments, das gerade geparsed wird dh. innerhalb von eingebetteten script-Tags)
+			\item open-write-close Zyklus: schreibt in ein anderes Fenster aus einem fremden Dokument heraus (close nötig, da sonst Browser das Dokument nicht lädt)
 		\end{itemize}
 		\item starke Einschränkung da nur Erweiterung des Dokument
 		\item Einsatz bei: Live Query Responses, Webchat, Multi-Frame/Multi-Window Anwendungen
