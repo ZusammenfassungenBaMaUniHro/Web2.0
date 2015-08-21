@@ -1513,12 +1513,12 @@ Zweiter Teil (Audio Daten)
 		\item Lösungen: Effizientere Nutzung der Protokolle
 		\begin{itemize}
 			\item Persistente Verbindungen: mehrere http-Requests pro tcp-Verbindung (Sockets)
-			\item Request Pipelining: Mehrere Requests statt stop-and-wait (mehrere Anfragen senden anstatt auf Antwort auf einzelne Requests zu warten)
+			\item Request Pipelining: Mehrere Requests statt stop-and-wait (mehrere Anfragen senden, anstatt auf Antwort auf einzelne Requests zu warten)
 			\item Parallele Verbindungen: Mehrere parallele tcp-Verbindungen
 			\item Preloading: früh laden und damit Ressourcen schon vorhanden wenn benötigt
-			\item Caching: nur einmal laden und wieder verwenden
+			\item Caching: nur einmal laden und wiederverwenden
 			\item Chunked Transfer: Übertragung von kleinen Teilen sobald bereit
-			\item Rohe Komprimierung: zip auf den Inhalten
+			\item Rohe Komprimierung: Zip auf den Inhalten
 			\item Smarte Komprimierung: BSON (Effizienten Encoding von JSON), ProtoBuf (BSON von Google)
 			\item Websockets: Socket für http-Requests (weniger header overhead)
 			\item SPDY und HTTP 2.0: neue Header für Steuerung\\
@@ -1546,19 +1546,17 @@ Zweiter Teil (Audio Daten)
 	\subsection{Node.js}
 	\begin{itemize}
 	\item Grundsätzlich: Server-Side JavaScript ermöglicht Interpretation und Verarbeitung von Seiten am Server
-		\item I/O Framework für Serverside JavaScript(V8-Basis, Nutzt event based programming und epoll)
+		\item I/O Framework für Serverside JavaScript(V8-Basis, Nutzt event-based-programming und epoll)
 		\item Vorteil: sehr kompakte Server, sehr leistungsfähig bei hohen Connection, Reduziert Anzahl Technologiebrüche in Web Anwendungen (nur eine Sprache für Client und Server)
 	\end{itemize}
 \section{Privatheit}
 	\begin{itemize}
 		\item \glqq \textbf{Privacy in Private}\grqq: Grundsätzliches Recht auf Privatheit
 		\item \glqq \textbf{Privacy in Public}\grqq: Informationelle Selbstbestimmung (jeder hat das Recht selbst zu entscheiden welche Daten über sich von anderen gebraucht werden und welche Daten auf einen selbst einwirken dürfen)
-		\item Paneopticum: rundes Gefängnis auf Cuba
 		\item \glqq \textbf{Interpersonal Privacy} \grqq: Austausch von Informationen so, daß es maximal sozial nützlich
 		erscheint (Facebook, Privatheit als ökonomisches Gut das getauscht werden kann)
 		\item \glqq \textbf{Zero Privacy}\grqq: Privatheit als verloren gegangene Eigenschaft
-		\item \textbf{digitales Panoopticon}: Datensammlungen führen allein durch ihr Bestehen bereits zu einer Verhaltensänderung\\
-		(Beispiel Augen-Plakate
+		\item \textbf{digitales Panopticon\footnote{Panopticon: rundes Gefängnis auf Kuba}}: Datensammlungen führen allein durch ihr Bestehen bereits zu einer Verhaltensänderung; Demonstriert durch Plakaten, die Augen darstellen und so den Diebstahl von Fahrrädern reduzieren.
 	\end{itemize}
 	\subsection{Verlust der Privatheit}
 	\begin{itemize}
@@ -1582,7 +1580,7 @@ Zweiter Teil (Audio Daten)
 		\item komplizierte Darstellung des Konflikts
 		\item Wofür: Die Suche nach den Bösen
 		\item Wodurch: Defekte \& Unerwünschte Software \& Der NSA ANT Catalogue\\
-		(Stecker Manipulation, Packete öffnen und anpassen,
+		(Stecker Manipulation, Pakete öffnen und anpassen
 	\end{itemize} 
 		\subsection{Selbstpreisgabe im (digitalen) sozialen Raum}	
 	\begin{itemize}			\item \textbf{Bewusst}: In sozialen Netzen
