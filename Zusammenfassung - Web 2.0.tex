@@ -107,7 +107,7 @@
 		\end{description}
 	\subsubsection{Technologien - Konzepte}
 	\begin{description}
-		\item[Advanced Javascript:] Einsatz von komlexen Javascript Programmen für die Realisierung der Webseite
+		\item[Advanced JavaScript:] Einsatz von komlexen JavaScript Programmen für die Realisierung der Webseite
 		\item[AJAX, XHR, HTML5:]  Realisierung einer dynamischen Webseite durch asynchrone Kommunikation
 		\item[Folkonomies und Tags:] Webseite stellt eine Benutzer definierte Möglichkeit für die Organisation der Daten, Bsp: Hashtag, Subreddit
 		\item[Browser Extensions und Plugins:] Erweiterung der Browser durch den Anwendungsentwickler, dadurch Desktop Look-and-Feel
@@ -116,7 +116,7 @@
 	\subsubsection{Technologien - Werkzeuge}
 	\begin{description}
 		\item[JS Libraries:] jQuery, extJS, Angular
-		\item[Embedded JS:] Einsatz von Javascript auf Server/Desktop Ebene, Bsp: V8, node.js
+		\item[Embedded JS:] Einsatz von JavaScript auf Server/Desktop Ebene, Bsp: V8, node.js
 		\item[Ajax KITS:] Implementierung für die asynchrone Kommunikation, Bsp: Rico, Dojo, GWT
 	\end{description}
 	\subsection{Notizen}
@@ -151,9 +151,9 @@
 	\end{center}
 	\subsection{AjaX}
 	\begin{itemize}
-		\item AjaX = Asynchronous Javascript XMLHTTPRequest (XHR)
+		\item AjaX = Asynchronous JavaScript XMLHTTPRequest (XHR)
 		\item Asynchron = GUI nicht blockiert während Übertragung
-		\item kein neuer Seitenaufbau sondern dynamische Erweiterung mittels Javascript
+		\item kein neuer Seitenaufbau sondern dynamische Erweiterung mittels JavaScript
 		\item Arbeitet als Single-Thread, was kritische Probleme löst (Es muss nicht auf parallele Entwicklung geachtet werden)
 	\end{itemize}
 	\subsection{Konzepte und Technologien}
@@ -165,7 +165,7 @@
 		\end{itemize}
 		\item Leichtgewichtiges Processing in n-tier Denkweise
 		\begin{itemize}
-			\item Client-Side Scripting: Javascript
+			\item Client-Side Scripting: JavaScript
 			\item Server-Side Code Generation: PHP, Java – basierte Ajax Kits
 		\end{itemize}
 		\item OO Dokumentenmodell mit Repräsentationsabtrennung
@@ -705,7 +705,7 @@ $\rightarrow$ Bsp: Microsoft)
 		\begin{itemize}
 			\item Surfer eine Webseite des Angreifers laden lassen
 			\begin{enumerate}
-				\item Javascript des Angreifers kommt zur Ausführung $\rightarrow$ Zugriff auf Client Ressourcen (Cookies, Formulardaten)
+				\item JavaScript des Angreifers kommt zur Ausführung $\rightarrow$ Zugriff auf Client Ressourcen (Cookies, Formulardaten)
 				\item Surfer glaubt sich auf einer anderen Seite $\rightarrow$ PIN angegeben, da ja auf Bankseite bin
 				\item Cross Site Request auf eingebettete Objekte kommt zur Ausführung $\rightarrow$ Autorisierungs-Cookie wird an nicht-intendierten Link gesendet
 				\item Lancieren gezielter Angriffe $\rightarrow$ Image / Video / PDF, das einen Zero Day im PlugIn / Player ausnutzt
@@ -728,7 +728,7 @@ $\rightarrow$ Bsp: Microsoft)
 	\subsubsection{Sandbox}
 	\begin{itemize}
 		\item Mobiler Code läuft in Sandbox und verhindert dadurch Zugriff auf lokale Ressourcen 
-		\item Modell von Javascript: Sandbox in \glqq Same Origin\grqq Variante
+		\item Modell von JavaScript: Sandbox in \glqq Same Origin\grqq Variante
 		\item Problem: ggf. zu weite Eingrenzung der Rechte (keine clientseitige Persistenz), kein kontrolliertes Durchbrechnen möglich
 	\end{itemize}
 	\subsubsection{Signierter Code}
@@ -745,10 +745,10 @@ $\rightarrow$ Bsp: Microsoft)
 	\end{itemize}
 	
 	
-	\subsection{Sicherheit von Javascript - Same Origin Sandbox}
+	\subsection{Sicherheit von JavaScript - Same Origin Sandbox}
 	\subsubsection{Allgemein}
 	\begin{itemize}
-		\item Eingebundenes Javascript auf einer Seite von Seite X hat Lese/Schreib-Rechte auf den Dokumenten welche die selbe Herkunft (Seite X) haben
+		\item Eingebundenes JavaScript auf einer Seite von Seite X hat Lese/Schreib-Rechte auf den Dokumenten welche die selbe Herkunft (Seite X) haben
 		\item selbe Herkunft ist verletzt gdw:
 		\begin{itemize}
 			\item Verschiedene Domäne in der URL
@@ -776,7 +776,7 @@ $\rightarrow$ Bsp: Microsoft)
 	\begin{itemize}
 		\item Durchbrechen durch Cross Site Zugriffe (Durchbruch durch die Sandbox)
 		\begin{itemize} 
-			\item Möglich durch: Javascript, CSS, Requests
+			\item Möglich durch: JavaScript, CSS, Requests
 			\item Geringes Problem da es durch geeigneten Webseiten Entwurf vermieden werden kann
 		\end{itemize}
 		\item Durchbrechen kann durch Browser-Hersteller ermöglicht werden
@@ -790,7 +790,7 @@ $\rightarrow$ Bsp: Microsoft)
 			\item CORS = Cross Origin Resource Sharing (W3C Standard)
 			\item Web Messaging = HTML 5 Technik für die Kommunikation zwischen Seiten
 			\item JsonRequest = Kommunikation durch Query in JSON Format mit JSON Antwort vom Server
-			\item JSONP = Kommunikationstechnik in Javascript um Daten von anderen Domain anzufordern
+			\item JSONP = Kommunikationstechnik in JavaScript um Daten von anderen Domain anzufordern
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{CORS - Cross Origin Resource Sharing}
@@ -834,7 +834,7 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Lösung:
 		\begin{itemize}
 			\item sichtbar einbetten
-			\item iframe busting (Javascript der eingebetten Seite greift auf parent zu und schreibt sich auf höchster Ebene)
+			\item iframe busting (JavaScript der eingebetten Seite greift auf parent zu und schreibt sich auf höchster Ebene)
 			\item Server setzt X-Frame-Options Header: \textbf{Deny }(komplettes Verbot), \textbf{Allow-From url} (Einbinden wenn Basisseite bestimmte URL) oder \textbf{Sameorigin} (Einbinden nur wenn Basisseite same origin ist)
 		\end{itemize}
 	\end{itemize}
@@ -927,7 +927,7 @@ $\rightarrow$ Bsp: Microsoft)
 	\subsubsection{Injection Attacken}
 	\begin{itemize}
 		\item Techniken zur Generierung dynamischer Seiten erhalten Daten vom Client
-		\item Techniken werden eingesetzt bei: SQL Queries, HTML Seiten, PHP Seiten, Javascript Programme
+		\item Techniken werden eingesetzt bei: SQL Queries, HTML Seiten, PHP Seiten, JavaScript Programme
 		\item Beispiel: Einschleusen von HTML Code auf Webseite durch Formulardaten
 		\item Beispiel: Manipulation des SQL-Query durch Manipulation im HTTP-Request
 		\item Lösung: Validierung der Eingabe, Escapen von Quotes
@@ -940,20 +940,20 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Speicherkanal (Storage channel) – Kommunikation über gespeicherte Daten.
 		\item Zeitkanal (Timing channel) – Informationen werden über zeitliche Abfolgen informationstechnischer Verarbeitungen übertragen.
 	\end{itemize}
-	\section{Einführung in Javascript}
+	\section{Einführung in JavaScript}
 	\subsection{Allgemein}
 	\begin{itemize}
 		\item Ziel: Dynamische Seiten ohne Server-Interaktion, Adaptive Webseiten mit rascher Reaktion auf Client-Interaktion, Rechenaufwand auf Client verteilen
 		\item Lösungen: 
 		\begin{itemize}
-			\item Javascript (Interpretierte Sprache)
-			\item VB Script (MS Alternative zu Javascript)
+			\item JavaScript (Interpretierte Sprache)
+			\item VB Script (MS Alternative zu JavaScript)
 			\item Java Applets (Bytecode VM, eingebettet oder PlugIn)
 			\item Active X (Kompilierte Programme auf Intel Architektur)
 		\end{itemize}
 		
 		\item Später neue Anforderungen: Zugriff auf Hardware \& Sensoren (GPS, Webcam, Mic), Performane Boost durch clientseitige Parallelität und stärkere Kontrolle der User (App Stores, Binary Only Module)
-		\item Javascript kann: Zugriff auf Webseite+Header, Event Handler, Schnittstelle Java - JavaScript
+		\item JavaScript kann: Zugriff auf Webseite+Header, Event Handler, Schnittstelle Java - JavaScript
 		\item Vorteile von JavaScript:
 		\begin{itemize}
 			\item Extrem weites deployment
@@ -964,20 +964,20 @@ $\rightarrow$ Bsp: Microsoft)
 			\item Langsam etwas effizienter (Hotspot, V8, asm.js)
 			\item Am Browser: Sicherer als Java \& ActiveX 
 		\end{itemize}
-		\item Javascript ist: imperativ, objekt-orientiert, funktional, scripting Sprache (nicht funktional im Sinne von Haskell und Co, nicht oo wie C++ oder Java)
+		\item JavaScript ist: imperativ, objekt-orientiert, funktional, scripting Sprache (nicht funktional im Sinne von Haskell und Co, nicht oo wie C++ oder Java)
 		\item Programmierer kann eigenen Programmierstil wählen d.h. wenig Zwang der Sprache 
-		\item Nutzung als universelles Target, da sehr weit verbreitet (Jeder Browser kann Javascript)
+		\item Nutzung als universelles Target, da sehr weit verbreitet (Jeder Browser kann JavaScript)
 		\item Problem: JavaScript bietet wenig Garantien (keine Typsicherheit, wenig Abgrenzung der Module, Wenig Debug-Unterstützung, Wenig Optimierung)
 		\item Lösung: Nachrüsten möglich 
 		\begin{itemize}
 			\item Typsystem: Typ-Annotation in Kommentaren dadurch bessere Analyse von Typsicherheit
 			\item Optimierung: \\
-			Sprachoptimierung nach der Analyse (Compiler von Javascript nach Javascript)\\
+			Sprachoptimierung nach der Analyse (Compiler von JavaScript nach JavaScript)\\
 			Compilation auf eine VM
 			\item Debugging: Firebug, Browser Konsolen (runtime) oder Closure Compiler (Compiletime)
 		\end{itemize}
 
-		\item Javascript als:
+		\item JavaScript als:
 		\begin{itemize}
 			\item Imperative Sprache: Variablen, einfaches Typsystem, Ablaufsemantik usw... aber keine sinnvolle Abgrenzung von imperativen Sprachen möglich, da Variablen dynamisch getypt und anfänglich nicht kompiliert sind
 			\item Funktionale Sprache: Funktionen, Rekursion, Funktionen als first-class-objects, anonyme Funktionen aber keine Seiteneffekt-Freiheit, kein komplexes Typsystem und keine referentielle Transparenz
@@ -1023,22 +1023,22 @@ $\rightarrow$ Bsp: Microsoft)
 	\end{itemize}
 	\subsection{Weitere Aspekte}
 	\begin{itemize}
-		\item Javascript Typen: schwach getypte Sprache (\textbf{typeof} prüft grundlegende Typen |primitiv oder Objekt| \textbf{instanceof} prüft auf Klasse eines Objektes) d.h. Variablen nicht getypt
-		\item 3 Bestandteile von Javascript
+		\item JavaScript Typen: schwach getypte Sprache (\textbf{typeof} prüft grundlegende Typen |primitiv oder Objekt| \textbf{instanceof} prüft auf Klasse eines Objektes) d.h. Variablen nicht getypt
+		\item 3 Bestandteile von JavaScript
 		\begin{enumerate}
-			\item ECMAScript = standarditisierte Sprachkern von Javascript (wesentliche Eigenschaften werden dort implementiert)
+			\item ECMAScript = standarditisierte Sprachkern von JavaScript (wesentliche Eigenschaften werden dort implementiert)
 			\item Document Object Model = Sprachunabhängige API für HTML (\& XML, CSS) Dokumente und Baumstrukturen, kompletter Zugriff auf alle HTML Tags (innerHTML), den Stil (style und classname), Events via Event-Handler
 			\item Browser Object Model = Stark Plattform-spezifische API für den Browser (window, document)
 		\end{enumerate}
-		\item Server-Side Javascript: Interpretation und Verarbeitung von Javascript auf Seiten am Server
+		\item Server-Side JavaScript: Interpretation und Verarbeitung von JavaScript auf Seiten am Server
 		\item \textbf{V8} ist eine freie Implementierung der Scriptsprache ECMAScript (JavaScript) und soll die Ausführung von JavaScript-Code beschleunigen. Wird in C++ entwickelt und unterstützt Multicore.\\
 		V8 steigert die Leistung zur Laufzeit, indem der JavaScript-Code bei der Ausführung durch so genannte Just-in-time-Kompilierung zunächst in nativen Maschinencode übersetzt wird. Weitere Leistungsvorteile ergeben sich aus Optimierungstechniken wie dem Einsatz von Inline Caching, das JavaScript-Objekte versteckt um geteilte Klassen erweitert, und einer so genannten „exakten automatischen Speicherbereinigung“, die Speicher schnell und in kleinen Portionen zuweist und wieder freigibt, was hierbei längere Wartezeiten vermeidet.
 		
 		\item Weiter Entwicklungen:
 		\begin{itemize}
-			\item CoffeeScript = knappes Javascript, Postfix if Notation, Einrückungen (Python), Pattern Matching (Hasekll) $\rightarrow$ Compilation nach Javascript (Problem: erzeugter JS Code schwer lesbar und debugging aufwendig)
-			\item TypeScript = Javascript für die große Systementwicklung, statisch getypte Variablen, Typ-Prüfung zur Compilezeit, echte Klassen usw
-			\item Dart = Javascript in C und Java erweitert (bisschen wie TypeScript)
+			\item CoffeeScript = knappes JavaScript, Postfix if Notation, Einrückungen (Python), Pattern Matching (Hasekll) $\rightarrow$ Compilation nach JavaScript (Problem: erzeugter JS Code schwer lesbar und debugging aufwendig)
+			\item TypeScript = JavaScript für die große Systementwicklung, statisch getypte Variablen, Typ-Prüfung zur Compilezeit, echte Klassen usw
+			\item Dart = JavaScript in C und Java erweitert (bisschen wie TypeScript)
 		\end{itemize}
 	\end{itemize}
 	
@@ -1046,7 +1046,7 @@ $\rightarrow$ Bsp: Microsoft)
 	
 	\section{JSON}
 	\begin{itemize}
-		\item JSON = Javascript Object Notation
+		\item JSON = JavaScript Object Notation
 		\item Format für die Serialisierung von Objekten
 		\item Unterstütze Datenstrukturen: Objekte, Arrays, Strings, Boolean, Integer, null
 		\item Bewertung: kompakter als XML (weniger Overhead als XML, weniger aufwendiges Parsen), keine Attribute, keine DTD
@@ -1062,7 +1062,7 @@ $\rightarrow$ Bsp: Microsoft)
 			\item Server führt Padding durch und liefert JSON + Padding aus
 			\item Ergebnis wird als dynamisches Script Tag dem Dokument hinzugefügt
 		\end{itemize}
-		\item Ergebnis: Keine Restriktion hinsichtlich XHR same-origin, da Script Tag; JSON wird an richtiger Stelle in Javascript eingebaut
+		\item Ergebnis: Keine Restriktion hinsichtlich XHR same-origin, da Script Tag; JSON wird an richtiger Stelle in JavaScript eingebaut
 		\item Erweiterung JSONRequest:
 		\begin{itemize}
 			\item Analog wie XMLHTTPRequest, aber kann aber nur JSON entgegennehmen
@@ -1070,7 +1070,7 @@ $\rightarrow$ Bsp: Microsoft)
 			\item Effekt: Sicherer und flexibler; Kein Schaden, da nur Daten übertragen; Keine Restriktion
 		\end{itemize}
 	\end{itemize}
-\section{Javascript Pattern}
+\section{JavaScript Pattern}
 	\subsection{Scope Pattern}
 		\textit{$\rightarrow$ äußerer Scope}\\
 		function name() \{\\
@@ -1360,14 +1360,14 @@ var Person = function (name) {this.name = name;}.
 		\begin{itemize}
 			\item innerHTML-Eigenschaft: Inhalt eins Tags überschreiben
 			\item Class und Style Modifikation: Attribute verändern wodurch Aussehen verändert wird oder neue Inhalte sichtbar
-			\item Javascript Dokumenten-Schnittstelle: document-Objekt in Javascript ändern
+			\item JavaScript Dokumenten-Schnittstelle: document-Objekt in JavaScript ändern
 			\item Multipart Mime Type: Mehrteilige Dokumente versenden und damit Inhalte updaten
 			\item DOM-API: Direkte Manipulation der (semi)standardisierten OO-Darstellung des Dokuments
 		\end{itemize}
 		\item Initiatoren (Push/Pull):
 		\begin{itemize}
 			\item Server Side: Server will das sich der Inhalt ändert (Multipart Mime Type, Slow Load, Polling)
-			\item Client Side: Durch Interaktion mit der Oberfläche wird Inhalt geändert (Meta Tag Refresh, XHR Request, Javascript URL Wechsel (onload Handler))
+			\item Client Side: Durch Interaktion mit der Oberfläche wird Inhalt geändert (Meta Tag Refresh, XHR Request, JavaScript URL Wechsel (onload Handler))
 		\end{itemize}
 	\end{itemize}
 	\subsection{innerHTML}
@@ -1403,9 +1403,9 @@ var Person = function (name) {this.name = name;}.
 		\item Schaltbare GUI: Alle Elemente einer GUI mit der HTML-Seite übertragen und bei User-Interaktion einfach zwischen den einzelnen Sichten umschalten $\rightarrow$ Realisierung durch visibility/display Attribute, z-Order Techniken oder Frame-Techniken
 		\item n-stabiles Widget: hat n-stabile Zustände (Schalter mit 2 Positionen) $\rightarrow$ Implementierung durch Umsetzen von class-Werten
 	\end{itemize}
-	\subsection{Javascript Dokumenten Schnittstelle}
+	\subsection{JavaScript Dokumenten Schnittstelle}
 	\begin{itemize}
-		\item Ziel: Zugriff von Javascript auf das Dokument in textueller Darstellung
+		\item Ziel: Zugriff von JavaScript auf das Dokument in textueller Darstellung
 		\item open(): öffnet Dokument zum Neubeschreiben
 		\item close(): schließt Dokument
 		\item write(): schreibt Text in das Dokument
@@ -1449,11 +1449,11 @@ Zweiter Teil (Audio Daten)
 	\begin{itemize}
 		\item DOM enthält Dokumententteile in OO Baumstruktur (einsehbar: Firebug, Chrome, Dom Inspector)
 		\item DOM-Api erlaubt diese OO Sicht zu modifizieren (Finden,Löschen,Erzeugen,Append,Preprend,Inhalt modizizieren, Attribute modifizieren)
-		\item Zugriff aus Javascript
+		\item Zugriff aus JavaScript
 		\item Wichtige Funktionen:
 		\begin{itemize}
 			\item createElement: erzeugt einen Knoten
-			\item setAttribute: setzt einen Attributwert (Zugriff meistens auch über Javascript Property möglich)
+			\item setAttribute: setzt einen Attributwert (Zugriff meistens auch über JavaScript Property möglich)
 			\item setNodeValue: setzt den Textwert eines Knoten
 			\item appendChild: fügt einen Knoten an eine Liste von Kindern
 			\item removeChild: entfernt ein Kind
@@ -1542,8 +1542,8 @@ Zweiter Teil (Audio Daten)
 	\end{itemize}
 	\subsection{Node.js}
 	\begin{itemize}
-	\item Grundsätzlich: Server-Side Javascript ermöglicht Interpretation und Verarbeitung von Seiten am Server
-		\item I/O Framework für Serverside Javascript(V8-Basis, Nutzt event based programming und epoll)
+	\item Grundsätzlich: Server-Side JavaScript ermöglicht Interpretation und Verarbeitung von Seiten am Server
+		\item I/O Framework für Serverside JavaScript(V8-Basis, Nutzt event based programming und epoll)
 		\item Vorteil: sehr kompakte Server, sehr leistungsfähig bei hohen Connection, Reduziert Anzahl Technologiebrüche in Web Anwendungen (nur eine Sprache für Client und Server)
 	\end{itemize}
 \section{Privatheit}
@@ -1887,7 +1887,7 @@ Roman)
 		\item Rapid Prototyping $\rightarrow$ ERM-Modell $\rightarrow$ Ruby regelt
 		\item Rails: Application Framework for web development (Hauptziel: Agiles Programmieren)
 		\item Agile Programmierung: Kontinuierlicher Strom von Ergebnissen; Regelmäßige Anpassung an sich ändernde Anforderungen; Das einzige Maß des Fortschritts ist funktionierende Software; Ergebnis-getrieben – nicht Planungs-getrieben; Enge Zusammenarbeit mit dem Kunden
-		\item Server: Ruby, nutzt Javascript Snippets
+		\item Server: Ruby, nutzt JavaScript Snippets
 		\item Ruby: funktionale, interpretierte Sprache ähnlich zu Python (Duck Typing, Garbage Collection, Objekt-orientiert)
 		\item Ducktyping: Wenn ein Objekt watschelt, ist es eine Ente
 		\item Aufbau nach MVC Paddern
@@ -1911,8 +1911,8 @@ Roman)
 	
 \section{Clientseitige Performance}
 	\begin{itemize}
-		\item Früher: Javascript Performance egal da Script nur für kleine Aufgabe, Webseite nur solange aktiv wie die Lesedauer war
-		\item Heute: Javascript Performance sehr wichtig da komplette Anwendungen in JS, höhere Verweildauern der User, höhere Anzahl an Transaktionen, Erwartungshaltung des Users ist eine andere
+		\item Früher: JavaScript Performance egal da Script nur für kleine Aufgabe, Webseite nur solange aktiv wie die Lesedauer war
+		\item Heute: JavaScript Performance sehr wichtig da komplette Anwendungen in JS, höhere Verweildauern der User, höhere Anzahl an Transaktionen, Erwartungshaltung des Users ist eine andere
 		\item Tool YSlow bietet Hinweise auf mögliche Verbesserungen
 		\item Parallele Requests werden durch den Browser limitiert
 	\end{itemize}
@@ -1926,7 +1926,7 @@ Roman)
 			\item Firebug Profiling: Automatische Auswertung von Laufzeiten für eine Statistik 
 		\end{itemize}
 	\end{itemize}
-	\subsection{Javascript-Optimierung}
+	\subsection{JavaScript-Optimierung}
 	\begin{itemize}
 		\item da nicht compiliert muss Entwickler per Hand Optimieren
 		\item Klassische Techniken:
@@ -1974,7 +1974,7 @@ Roman)
 	\end{itemize}
 	\subsubsection{Nutze Google Downloader}
 	\begin{itemize}
-		\item Problem: Download von Javascript Library vom Hersteller langsam
+		\item Problem: Download von JavaScript Library vom Hersteller langsam
 		\item Besser: nutzen des Google Downloaders (nutzt Google Cloud)
 		\item Problem: nötiges Vertrauen in Google, Google erhält Daten über die Anwendung, User via Logging und Referrer Header
 	\end{itemize}
@@ -2013,14 +2013,14 @@ Roman)
 		\item Client-seitig
 			\begin{itemize}
 				\item \textbf{Paradigma}: Programmierer entwickelt Seiten für den Client;Nutze serverseitige Funktionen via URL
-				\item \textbf{Toolkit}: Wiederverwendbarer Javascript / CSS / HTML Code; Code, Funktionen, Widgets, Muster;Standardisierte Client-seitige Tasks
+				\item \textbf{Toolkit}: Wiederverwendbarer JavaScript / CSS / HTML Code; Code, Funktionen, Widgets, Muster;Standardisierte Client-seitige Tasks
 				\item \textbf{Interface}: HTML, XML und JSON produziert von Server, Dynamische Seiten-Adaptierung durch AJAX
 			\end{itemize}
 		\item Server-seitig
 			\begin{itemize}
 				\item \textbf{Paradigma}: HTML, JS, CSS, XML
 				\item \textbf{Toolkit}: Perl, PHP, Java, Python $\rightarrow$ Funktionen für die Seitengenerieriung
-				\item \textbf{Interface}: meistens HTML mit eingebetteten Javascript
+				\item \textbf{Interface}: meistens HTML mit eingebetteten JavaScript
 			\end{itemize}
 		\item Auswertung: ????
 	\end{itemize}		
