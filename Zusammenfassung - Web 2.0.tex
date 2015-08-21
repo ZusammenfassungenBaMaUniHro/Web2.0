@@ -1072,11 +1072,14 @@ $\rightarrow$ Bsp: Microsoft)
 	\end{itemize}
 \section{JavaScript Pattern}
 	\subsection{Scope Pattern}
-		\textit{$\rightarrow$ äußerer Scope}\\
-		function name() \{\\
-		\textit{$\rightarrow$ innerer Scope}\\
-		\};\\
-		\textit{$\rightarrow$ äußerer Scope}\\
+		\begin{lstlisting}
+		\\ outer Scope
+		function name() {
+			\\ inner Scope
+		}
+		\\ outer Scope
+		\end{lstlisting}
+	
 		\begin{itemize}
 			\item innerer: 
 			private instance \textit{var x = ...} oder 
