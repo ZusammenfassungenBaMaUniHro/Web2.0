@@ -881,7 +881,7 @@ $\rightarrow$ Bsp: Microsoft)
 		\begin{itemize}
 			\item Objekte gehören einem User
 			\item UserId hat bestimmte Rechte auf dem Objekt
-			\item Programm unter einen UserId hat bestimmte Zugriffsrechte
+			\item Programm hat unter einee UserId bestimmte Zugriffsrechte
 			\item \textbf{Problem}: Kann Zugriffsrechte nicht mit anderen User teilen
 			\item \textbf{Lösung}: Gruppenkonzept
 		\end{itemize}
@@ -917,13 +917,12 @@ $\rightarrow$ Bsp: Microsoft)
 	\begin{itemize}
 		\item Attacke, welche durch eine versteckte Veränderung der Oberfläche erfolgt 
 		\item Möglichkeiten: Cursordatei manipuliert
-		\item Clickjacking: Stehle Mausklick des Users (Angreifer spielt ihm vor, dass er auf eine andere Stelle klickt)
-		\item Strokejacking: Stehle den Tastendruck des Users (Browser sieht andere Taste als jene die der User gedrückt hat)
+		\item Clickjacking: Stiehl Mausklick des Users (Angreifer spielt ihm vor, dass er auf eine andere Stelle klickt)
+		\item Strokejacking: Stiehl den Tastendruck des Users (Browser sieht andere Taste als jene die der User gedrückt hat)
 	\end{itemize}
 	\subsubsection{Web Spoofing Attacke}
 	\begin{itemize}
-		\item Benutzer ist auf anderem Server als er glaubt
-		\item Ziel: User vorzuschleiern auf einer anderen Seite zu sein als er tatsächlich ist (User denkt er ist auf bank.de, hat aber mafia.de aufgerufen)
+		\item Ziel: User vorzutäuschen auf einer anderen Seite zu sein als er tatsächlich ist (User denkt er ist auf bank.de, hat aber mafia.de aufgerufen)
 	\end{itemize}
 	\subsubsection{Injection Attacken}
 	\begin{itemize}
@@ -936,6 +935,7 @@ $\rightarrow$ Bsp: Microsoft)
 	\subsubsection{Covert Channel}
 	\begin{itemize}
 		\item ein parasitärer Kommunikationskanal, welcher Bandbreite (Informationskapazität) eines legitimierten Kommunikationskanals benutzt, um Informationen zu übermitteln.
+		\item Stichwort: Steganographie
 		\item Alle verdeckten Kanäle benötigen Bandbreite eines legitimierten Kommunikationskanals. Dadurch verringern sie entweder die Bandbreite des legitimierten Kanals oder laden ihm ohne Verringerung der Bandbreite weitere Informationen auf. Der verdeckte Kanal versteckt sich geschickt im legitimierten Kanal und ist somit schwer bis gar nicht zu entdecken.
 		\item Speicherkanal (Storage channel) – Kommunikation über gespeicherte Daten.
 		\item Zeitkanal (Timing channel) – Informationen werden über zeitliche Abfolgen informationstechnischer Verarbeitungen übertragen.
@@ -979,35 +979,35 @@ $\rightarrow$ Bsp: Microsoft)
 
 		\item Javascript als:
 		\begin{itemize}
-			\item imperative Sprache: Variablen, Einfaches Typsystem, Ablaufsemantik usw... aber keine sinnvolle Abgrenzung von imperativen Sprachen möglich da Variablen sind dynamisch getypt und anfänglich nicht kompiliert
-			\item funktionale Sprache: Funktionen, Rekursion, Funktionen als first-class-objects, anonyme Funktionen aber keine Seiteneffekt-Freiheit, kein komplexes Typsystem und keine referentielle Transparenz
-			\item Objekt-orientierte Sprache: Klassen, Vererbung und Polymorphismus aber keine Namensräume, keine Zugriffsmodifikatioren, kein typ-casting und keine Templates
+			\item Imperative Sprache: Variablen, einfaches Typsystem, Ablaufsemantik usw... aber keine sinnvolle Abgrenzung von imperativen Sprachen möglich, da Variablen dynamisch getypt und anfänglich nicht kompiliert sind
+			\item Funktionale Sprache: Funktionen, Rekursion, Funktionen als first-class-objects, anonyme Funktionen aber keine Seiteneffekt-Freiheit, kein komplexes Typsystem und keine referentielle Transparenz
+			\item Objekt-orientierte Sprache: Klassen, Vererbung und Polymorphismus aber keine Namensräume, keine Zugriffsmodifikatioren, kein Typecasting und keine Templates
 		\end{itemize}
 	\end{itemize}
 	\subsection{Funktionale Aspekte}
 	\begin{itemize}
 		\item Zugriff auf Parameter über Namen oder Array-Arguments (variadische Funktionen)
-		\item variadische Funktionen: Funktionen mit unbestimmter Arität (Zugriff oder Arraystruktur)
+		\item Variadische Funktionen: Funktionen mit unbestimmter Arität (Zugriff oder Arraystruktur)
 		\item Funktionsdeklaration und Rekursion wie üblich möglich
 		\item Funktionen sind Werte (first-class-objects) d.h. können als Variablen gespeichert bzw. als Paramter übergeben werden
 		\item Anonyme Funktionen Bsp: var quad = function (x) \{return x*x;\} (Funktion ist in quad-Variable gespeichert aber hat keinen Funktionsnamen)
-		\item Closures: Anonyme Lambda-Definition mit freien Variablen (d.h. in der Funktion können Variablen genutzt werden welche im inneren Kontext nicht bekannt sind)
-		\item Eingebauter Compiler: Funktions-Körper oder bel. Evaluation durch eval-Funktion
-		\item Problem des Compilers: Langsam (da dynamisch) und Gefährlich (geringe Kontrolle über Seiten-Veränderung)
+		\item Closures: Anonyme Lambda-Definition mit freien Variablen (d.h. in der Funktion können Variablen genutzt werden, welche im inneren Kontext nicht bekannt sind)
+		\item Eingebauter Compiler: Funktions-Körper oder beliebige Evaluation durch eval-Funktion
+		\item Problem des Compilers: Langsam (da dynamisch) und gefährlich (geringe Kontrolle über Seitenveränderung)
 	\end{itemize}
 	\subsection{Objekt-orientierte Aspekte}
 	\begin{itemize}
-		\item klassisch: Klassen-basierte Vererbung (Java,C++)
-		\item in JS: Prototypen-basierte Vererbung
+		\item Klassisch: Klassenbasierte Vererbung (Java,C++)
+		\item In JS: Prototypenbasierte Vererbung
 		\begin{itemize}
 			\item Objekt besitzt Methode selber oder delegiert Suche an Prototyp
 			\item Prototyp ist Eigenschaft der Klasse
-			\item Methoden-Suche ist dynamisch und passiert zur Laufzeit
+			\item Methodensuche ist dynamisch und passiert zur Laufzeit
 			\item Methoden können zur Laufzeit hinzugefügt werden
-			\item Vererbungs-Hierarchie ensteht zur Laufzeit
-			\item Vererbungs-Hierarchie kann zur Laufzeit dynamisch und mehrfach verändert werden
+			\item Vererbungshierarchie entsteht zur Laufzeit
+			\item Vererbungshierarchie kann zur Laufzeit dynamisch und mehrfach verändert werden
 		\end{itemize}
-		\item jede Funktionsauswertung läuft in einem Kontext (this)
+		\item Jede Funktionsauswertung läuft in einem Kontext (this)
 		\item Globales Objekt = Window 
 		\item Erzeugtes Objekt = Konstruktor\\
 		\textit{var dozent = new person (\glqq Gero\grqq);}
@@ -1026,8 +1026,8 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Javascript Typen: schwach getypte Sprache (\textbf{typeof} prüft grundlegende Typen |primitiv oder Objekt| \textbf{instanceof} prüft auf Klasse eines Objektes) d.h. Variablen nicht getypt
 		\item 3 Bestandteile von Javascript
 		\begin{enumerate}
-			\item ECMAScript = standarditisierte Sprachkern von Javascript (wesentliche Eigenschaften werden dort implemenziert)
-			\item Document Object Model = Sprachunabhängige API für HTML (\& XML, CSS) Dokumente und Baumstrukturen, kompletter Zugriff auf alle HTML Tags (innerHTML), den Stiel (style und classname), Events via Event-Handler
+			\item ECMAScript = standarditisierte Sprachkern von Javascript (wesentliche Eigenschaften werden dort implementiert)
+			\item Document Object Model = Sprachunabhängige API für HTML (\& XML, CSS) Dokumente und Baumstrukturen, kompletter Zugriff auf alle HTML Tags (innerHTML), den Stil (style und classname), Events via Event-Handler
 			\item Browser Object Model = Stark Plattform-spezifische API für den Browser (window, document)
 		\end{enumerate}
 		\item Server-Side Javascript: Interpretation und Verarbeitung von Javascript auf Seiten am Server
@@ -1036,7 +1036,7 @@ $\rightarrow$ Bsp: Microsoft)
 		
 		\item Weiter Entwicklungen:
 		\begin{itemize}
-			\item CoffeeScript = knappes Javascript, Postfix if Notation, Einrückungen (Python), Pattern Matching (Hasekll) $\rightarrow$ Compilation nach Javascript(Problem: erzeugter JS Code schwer lesbar und debugging aufwendig)
+			\item CoffeeScript = knappes Javascript, Postfix if Notation, Einrückungen (Python), Pattern Matching (Hasekll) $\rightarrow$ Compilation nach Javascript (Problem: erzeugter JS Code schwer lesbar und debugging aufwendig)
 			\item TypeScript = Javascript für die große Systementwicklung, statisch getypte Variablen, Typ-Prüfung zur Compilezeit, echte Klassen usw
 			\item Dart = Javascript in C und Java erweitert (bisschen wie TypeScript)
 		\end{itemize}
@@ -1054,6 +1054,8 @@ $\rightarrow$ Bsp: Microsoft)
 		\item Einsatzbereiche: Server generiert JSON und Client generiert in JS aus JSON ein Objekt
 		\item Risiko: Server sendet mehr als JSON Subset
 		\item Erweiterung: JSONP (JSON + Padding)
+		\item Padding (von englisch to pad ‚auffüllen‘) ist ein Fachbegriff der Informatik für Fülldaten, mit denen ein vorhandener Datenbestand vergrößert wird.
+		\item Ermöglicht die Übertragung von (JSON-)Daten über Domaingrenzen
 		\item Idee: 
 		\begin{itemize}
 			\item Client fordert ein bestimmtes Padding vom Server an
